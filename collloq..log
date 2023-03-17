@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.10)  17 MAR 2023 11:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.10)  17 MAR 2023 14:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/brrdlam/Desktop/ITMO/МатАн/Коллоквиумы/term2/collloq_i.g..tex
-(/Users/brrdlam/Desktop/ITMO/МатАн/Коллоквиумы/term2/collloq_i.g..tex
+**/Users/brrdlam/Desktop/ITMO/МатАн/Коллоквиумы/term2/coloc1/collloq..tex
+(/Users/brrdlam/Desktop/ITMO/МатАн/Коллоквиумы/term2/coloc1/collloq..tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24> (/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -585,8 +585,8 @@ Package: cancel 2013/04/12 v2.2 Cancel math terms
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count298
 \l__pdf_internal_box=\box102
-) (./collloq_i.g..aux)
-\openout1 = `collloq_i.g..aux'.
+) (./collloq..aux)
+\openout1 = `collloq..aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
@@ -676,11 +676,11 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 38.
 LaTeX Info: Redefining \pageref on input line 38.
 LaTeX Info: Redefining \nameref on input line 38.
- (./collloq_i.g..out) (./collloq_i.g..out)
+ (./collloq..out) (./collloq..out)
 \@outlinefile=\write3
-\openout3 = `collloq_i.g..out'.
+\openout3 = `collloq..out'.
 
- (./collloq_i.g..toc
+ (./collloq..toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 8.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -690,7 +690,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 8.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
 \tf@toc=\write4
-\openout4 = `collloq_i.g..toc'.
+\openout4 = `collloq..toc'.
 
  [1
 
@@ -893,20 +893,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 384--385
 
  []
 
-[9] [10] (./collloq_i.g..aux)
-Package rerunfilecheck Info: File `collloq_i.g..out' has not changed.
+[9] [10] (./collloq..aux)
+Package rerunfilecheck Info: File `collloq..out' has not changed.
 (rerunfilecheck)             Checksum: 481FFEF7521A1C75B701F5CE0FF68F29;10829.
  ) 
 Here is how much of TeX's memory you used:
  13189 strings out of 478268
- 202397 string characters out of 5846346
- 517286 words of memory out of 5000000
+ 202334 string characters out of 5846346
+ 517239 words of memory out of 5000000
  31151 multiletter control sequences out of 15000+600000
  483402 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,13n,63p,1756b,485s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 60i,13n,63p,1759b,485s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on collloq_i.g..pdf (10 pages, 311714 bytes).
+Output written on collloq..pdf (10 pages, 312073 bytes).
 PDF statistics:
  287 PDF objects out of 1000 (max. 8388607)
  231 compressed objects within 3 object streams

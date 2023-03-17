@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1679041889 "/Users/brrdlam/Desktop/ITMO/МатАн/Коллоквиумы/term2/collloq_i.g..tex" "collloq_i.g..pdf" "collloq_i.g." 1679041891
-  "/Users/brrdlam/Desktop/ITMO/МатАн/Коллоквиумы/term2/collloq_i.g..tex" 1679041889 25536 ff6b98fbaeb0cf29719f15f1b7b17c1e ""
+["pdflatex"] 1679052262 "/Users/brrdlam/Desktop/ITMO/МатАн/Коллоквиумы/term2/coloc1/collloq..tex" "collloq..pdf" "collloq." 1679052263
+  "/Users/brrdlam/Desktop/ITMO/МатАн/Коллоквиумы/term2/coloc1/collloq..tex" 1679052263 25695 46ae3de50b1f16b798d9edbfff82e7aa ""
   "/Users/brrdlam/Library/texlive/2022/texmf-var/fonts/tfm/lh/lh-t2a/labx1000.tfm" 1668115282 3300 6abb8e321227ead2a8e929e5abc72bd3 ""
   "/Users/brrdlam/Library/texlive/2022/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1668114357 3308 eee81981029f67083258db36df06e523 ""
   "/Users/brrdlam/Library/texlive/2022/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1668113131 3304 6a543c07045572737981351171e0505e ""
@@ -127,14 +127,14 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1668112867 2826447 75c26504218145feb862d92ea94b24d2 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "collloq_i.g..aux" 1679041890 5306 eebfd44a6f71e47e427d8c905ca5474b "pdflatex"
-  "collloq_i.g..out" 1679041890 10829 481ffef7521a1c75b701f5ce0ff68f29 "pdflatex"
-  "collloq_i.g..tex" 1679041889 25536 ff6b98fbaeb0cf29719f15f1b7b17c1e ""
-  "collloq_i.g..toc" 1679041890 3471 3cbc7f76b05f2d22b0a90862eac0d5f6 "pdflatex"
+  "collloq..aux" 1679052263 5306 eebfd44a6f71e47e427d8c905ca5474b "pdflatex"
+  "collloq..out" 1679052263 10829 481ffef7521a1c75b701f5ce0ff68f29 "pdflatex"
+  "collloq..tex" 1679052263 25695 46ae3de50b1f16b798d9edbfff82e7aa ""
+  "collloq..toc" 1679052263 3471 3cbc7f76b05f2d22b0a90862eac0d5f6 "pdflatex"
   "unkn_inttbl.png" 1678723272 19350 e71a7e3699463d89647b80dcffb166f6 ""
   (generated)
-  "collloq_i.g..aux"
-  "collloq_i.g..log"
-  "collloq_i.g..out"
-  "collloq_i.g..pdf"
-  "collloq_i.g..toc"
+  "collloq..aux"
+  "collloq..log"
+  "collloq..out"
+  "collloq..pdf"
+  "collloq..toc"
