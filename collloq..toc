@@ -17,3 +17,7 @@
 \contentsline {section}{\numberline {9}Критерии интегрируемости (Дарбу, Римана, через интегралы Дарбу). Запись с помощью колебания функции.}{8}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Запись с помощью колебаний функции.}{9}{subsection.9.1}%
 \contentsline {section}{\numberline {10}Свойства интегрируемых функций: линейность; интегрируемость произведения, частного, модуля; интегрируемость на меньшем отрезке и на склейке отрезков.}{9}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Склейка отрезков}{11}{subsection.10.1}%
+\contentsline {section}{\numberline {11}Классы интегрируемых функций: непрерывная, с конечным числом точек разрыва, монотонная.}{11}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Интегрируемость непрерывной функции}{11}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Конечное число точек разрыва}{12}{subsection.11.2}%

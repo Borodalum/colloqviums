@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.10)  17 MAR 2023 14:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.10)  17 MAR 2023 19:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -588,27 +588,27 @@ File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 ) (./collloq..aux)
 \openout1 = `collloq..aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Info: Redefining \th on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Info: Redefining \th on input line 39.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -663,7 +663,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2022/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 38.
+Package hyperref Info: Link coloring OFF on input line 39.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
@@ -673,9 +673,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count305
 )
-LaTeX Info: Redefining \ref on input line 38.
-LaTeX Info: Redefining \pageref on input line 38.
-LaTeX Info: Redefining \nameref on input line 38.
+LaTeX Info: Redefining \ref on input line 39.
+LaTeX Info: Redefining \pageref on input line 39.
+LaTeX Info: Redefining \nameref on input line 39.
  (./collloq..out) (./collloq..out)
 \@outlinefile=\write3
 \openout3 = `collloq..out'.
@@ -695,58 +695,53 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 44--48
+Underfull \hbox (badness 10000) in paragraph at lines 45--49
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--48
+Underfull \hbox (badness 10000) in paragraph at lines 45--49
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--61
+Underfull \hbox (badness 10000) in paragraph at lines 58--62
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--61
+Underfull \hbox (badness 10000) in paragraph at lines 58--62
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--77
+Underfull \hbox (badness 10000) in paragraph at lines 73--78
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--85
+Underfull \hbox (badness 10000) in paragraph at lines 83--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--93
+Underfull \hbox (badness 10000) in paragraph at lines 92--94
 
  []
 
 [2]
-<unkn_inttbl.png, id=127, 593.21625pt x 436.63126pt>
+<unkn_inttbl.png, id=148, 593.21625pt x 436.63126pt>
 File: unkn_inttbl.png Graphic file (type png)
 <use unkn_inttbl.png>
-Package pdftex.def Info: unkn_inttbl.png  used on input line 96.
+Package pdftex.def Info: unkn_inttbl.png  used on input line 97.
 (pdftex.def)             Requested size: 355.9325pt x 261.98077pt.
 
-Overfull \hbox (10.04523pt too wide) in paragraph at lines 99--101
+Overfull \hbox (10.04523pt too wide) in paragraph at lines 100--102
 \T2A/cmr/m/n/10 Доказательство каж-до-го из них со-сто-ит в том, что нуж-но про-диф-фе-рен-ци-ро-вать пра-вую часть...\T2A/cmr/bx/n/10 !!ВЫУЧИТЕ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 116--117
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
 
@@ -755,161 +750,186 @@ Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+
+ []
+
 [3 <./unkn_inttbl.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
 
-Overfull \hbox (0.66183pt too wide) in paragraph at lines 157--157
+Overfull \hbox (0.66183pt too wide) in paragraph at lines 158--158
 []\T2A/cmr/bx/n/14.4 Определение ин-те-гра-ла Ри-ма-на. При-мер неин-те-гри-ру-ем-мой функ-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
 
 
-Overfull \hbox (16.1084pt too wide) in paragraph at lines 165--171
+Overfull \hbox (16.1084pt too wide) in paragraph at lines 166--172
 \T2A/cmr/bx/n/10 Определение. \T2A/cmr/m/n/10 Ве-ли-чи-на $\OML/cmm/m/it/10 ^^U\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^\\OT1/cmr/m/n/10 ) = [] ^^A\OML/cmm/m/it/10 x[]$ \T2A/cmr/m/n/10 на-зы-ва-ет-ся \T2A/cmr/bx/n/10 мел-ко-стью(или ран-гом) раз-би-е-ния(дробления)\T2A/cmr/m/n/10 . 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--171
+Underfull \hbox (badness 10000) in paragraph at lines 166--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--171
+Underfull \hbox (badness 10000) in paragraph at lines 166--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--171
+Underfull \hbox (badness 10000) in paragraph at lines 166--172
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 173--178
+Underfull \hbox (badness 10000) in paragraph at lines 174--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--178
+Underfull \hbox (badness 10000) in paragraph at lines 174--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--187
+Underfull \hbox (badness 10000) in paragraph at lines 185--188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--187
+Underfull \hbox (badness 10000) in paragraph at lines 185--188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--210
+Underfull \hbox (badness 10000) in paragraph at lines 206--211
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--210
+Underfull \hbox (badness 10000) in paragraph at lines 206--211
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 223--226
+Underfull \hbox (badness 10000) in paragraph at lines 224--227
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 223--226
+Underfull \hbox (badness 10000) in paragraph at lines 224--227
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 226.
+(hyperref)                removing `math shift' on input line 227.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 226.
+(hyperref)                removing `math shift' on input line 227.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--233
+Underfull \hbox (badness 10000) in paragraph at lines 231--234
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--239
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 272--275
+Underfull \hbox (badness 10000) in paragraph at lines 273--276
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--275
+Underfull \hbox (badness 10000) in paragraph at lines 273--276
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 299--300
+Underfull \hbox (badness 10000) in paragraph at lines 300--301
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--313
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
 
  []
 
 [7]
-Overfull \hbox (1.21799pt too wide) in paragraph at lines 332--332
+Overfull \hbox (1.21799pt too wide) in paragraph at lines 333--333
 []\T2A/cmr/bx/n/14.4 Критерии ин-те-гри-ру-е-мо-сти (Дар-бу, Ри-ма-на, че-рез ин-те-гра-лы Дар-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
+Underfull \hbox (badness 10000) in paragraph at lines 334--335
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 384--385
+Underfull \hbox (badness 10000) in paragraph at lines 385--386
 
  []
 
-[9] [10] (./collloq..aux)
+[9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 486--487
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 488--490
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 506--508
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--525
+
+ []
+
+[11] [12] (./collloq..aux)
 Package rerunfilecheck Info: File `collloq..out' has not changed.
-(rerunfilecheck)             Checksum: 481FFEF7521A1C75B701F5CE0FF68F29;10829.
+(rerunfilecheck)             Checksum: D3FC37A4A57AEC2DE9D0BE3DDF5672C1;12370.
  ) 
 Here is how much of TeX's memory you used:
- 13189 strings out of 478268
- 202334 string characters out of 5846346
- 517239 words of memory out of 5000000
- 31151 multiletter control sequences out of 15000+600000
+ 13204 strings out of 478268
+ 202497 string characters out of 5846346
+ 519248 words of memory out of 5000000
+ 31156 multiletter control sequences out of 15000+600000
  483402 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,13n,63p,1759b,485s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 60i,13n,63p,1759b,487s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on collloq..pdf (10 pages, 312073 bytes).
+Output written on collloq..pdf (12 pages, 323072 bytes).
 PDF statistics:
- 287 PDF objects out of 1000 (max. 8388607)
- 231 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 500000)
- 150 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 322 PDF objects out of 1000 (max. 8388607)
+ 264 compressed objects within 3 object streams
+ 61 named destinations out of 1000 (max. 500000)
+ 182 words of extra memory for PDF output out of 10000 (max. 10000000)
 

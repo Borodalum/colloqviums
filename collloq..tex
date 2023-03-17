@@ -34,6 +34,7 @@
 \newcommand*{\theorem}[2]{\textbf{Теорема #1. } #2 \newline}
 \newcommand*{\definition}[1]{\textbf{Определение.} #1 \newline}
 \newcommand*{\R}{\mathbb{R}}
+\newcommand*{\eps}{\varepsilon}
 
 \begin{document}
 \tableofcontents
@@ -425,8 +426,103 @@ $$
         $$  
         Пусть $\delta = min(\delta_1, \delta_2)$, тогда для любого $\tau$ такого, что $\lambda(\tau) < \delta$ выполняется
         $$
-            \sum_{i = 1}^{n} \omega_i (\alpha f + \beta g)\Delta x_i \leq |\alpha| \sum_{i = 1}^{n} \omega_i(f)\Delta x_i + |\beta|
+            \sum_{i = 1}^{n} \omega_i (\alpha f + \beta g)\Delta x_i \leq |\alpha| \sum_{i = 1}^{n} \omega_i(f)\Delta x_i + |\beta|\omega(g)\Delta x_i \leq 
         $$
+        $$
+            \leq \cfrac{|\alpha|\varepsilon}{2(|\alpha| + 1)} + \cfrac{\beta \varepsilon}{2(|\beta| + 1)} < \cfrac{\varepsilon}{2} + \cfrac{\varepsilon}{2} = \varepsilon
+        $$
+        Значит по критерию Дарбу, $\alpha f + \beta g \in R[a, b]$.
+        \item Так как $f, g \in R[a, b]$, то по необходимому условию они ограничены на $[a, b]$, то есть
+        $$
+            \exists C:\; |f(x)| < C, |g(x)| < C, \forall x \in [a, b]
+        $$
+        Кроме того, так как 
+        $$
+            |f(x)g(x) - f(y)g(y)| = |f(x)g(x) - f(x)g(y) + f(x)g(y) - f(y)g(y)| \leq
+        $$
+        $$
+            \leq |f(x)||g(x) - g(y)| + |g(y)||f(x) - f(y)| \leq C(\omega_i(f) + \omega_i(g))
+        $$
+        то переходя к супремуму в левой части неравенства получим, что 
+        $$
+            \omega_i(fg) \leq C(\omega_i(f) + \omega_i(g))
+        $$
+        Распишем критерии Дарбу через колебания для $f, g$ (прошлый пункт) и тогда 
+        $$
+            \sum_{i = 1}^{n} \omega_i(fg) \Delta x_i \leq C(\sum_{i = 1}^{n}f \Delta x_i + \sum_{i = 1}^{n}g \Delta x_i) \leq
+        $$
+        $$
+            \leq C\Bigl(\cfrac{\eps}{2C} + \cfrac{\eps}{2C}\Bigr) = \eps
+        $$
+        \item Так как 
+        $$
+            ||f(x)| - |f(y)|| \leq |f(x) - f(y)| \leq \omega_i(f)
+        $$
+        то, переходя к супремуму в левой части неравенства, получается, что 
+        $$
+            \omega_i(|f|) \leq \omega_i(f)
+        $$
+        далее аналогично п1, п2
+        \item Так как 
+        $$
+            \Bigl| \cfrac{1}{f(x) - \cfrac{1}{f(y)}} \Bigr| = \cfrac{f(x) - f(y)}{f(x)f(y)} \leq \cfrac{|f(x) - f(y)|}{C^2} \leq \cfrac{\omega_i(f)}{C^2}
+        $$
+        то переходя к супремуму
+        $$
+            \omega_i(\cfrac{1}{f}) \leq \cfrac{\omega_i(f)}{C^2}
+        $$
+        далее аналогично п1, п2
+        \item Пусть $\eps > 0$. Так как $f \in R[a, b]$, то, согласно критерию Дарбу
+        $$
+            \exists \delta : \; \forall \tau : \; \lambda(\tau) < \delta \Rightarrow \sum_{i = 1}^{n} \omega_i(f)\Delta x_i < \eps
+        $$
+        Пусть $\tau'$ - произвольное разбиение отрезка $[c, d]$ такое, что $\lambda(\tau') < \delta$. Дополним его до разбиения $\tau$ отрезка $[a, b]$ так, чтобы $\lambda(\tau) < \delta$, введя разбиения отрезков $[a, c]$ и $[d, b]$, но не добавляя новых точек в отрезок $[c, d]$. Тогда
+        $$
+            \sum_{[c, d]}^{} \omega_i(f)\Delta x_i \leq \sum_{[a, b]}^{}\omega_i(f)\Delta x_i < \eps
+        $$
+        так как все слагаемые входящие в левую сумму, входят в правую сумму и омеги больше нуля. Таким образом $f \in R[c, d]$.
     \end{enumerate}
+\end{proof}
+.\newline 
+\subsection{Склейка отрезков}
+\theorem{(склейка отрезков)}{Пусть $f(x) \in R[a, c]$, $f(x) \in R[c, b]$, тогда $f(x) \in R[a, b]$.}
+\begin{proof}
+    Пусть $\eps > 0$. Так как функция $f \in R[a, c]$, то по критерию Римана
+    $$
+        \exists \tau_1: \; \sum_{[a, c]}^{} \omega_i(f)\Delta x_i < \cfrac{\eps}{2}
+    $$
+    и аналогично для $f \in R[c, b]$
+    $$
+        \exists \tau_1: \; \sum_{[c, b]}^{} \omega_i(f)\Delta x_i < \cfrac{\eps}{2}
+    $$
+    Пусть $\tau = \tau_1 \cup \tau_2$ является разбиением отрезка $[a, b]$, причем
+    $$
+        \sum_{[a, b]}^{}\omega_i(f)\Delta x_i = \sum_{[a, c]}^{} \omega_i(f)\Delta x_i + \sum_{[c, b]}^{} \omega_i(f)\Delta x_i < \cfrac{\eps}{2} + \cfrac{\eps}{2} = \eps
+    $$
+    значит по критерию Римана $f(x) \in R[a, b]$.
+\end{proof}
+\section{Классы интегрируемых функций: непрерывная, с конечным числом точек разрыва, монотонная.}
+\subsection{Интегрируемость непрерывной функции}
+\theorem{(об интегрируемости непрерывной функции)}{Непрерывная на отрезке $[a, b]$ функция интегрируема на нем.}
+\begin{proof}
+    Пусть $\eps > 0$. Непрерывная на отрезке функция равномерно непрерывна на нем по теореме Кантора, а значит 
+    $$
+        \exists \delta > 0: \; \forall x_1, x_2 \in [a, b]: \; |x_1 - x_2| < \delta \Rightarrow |f(x_1) - f(x_2)| < \cfrac{\eps}{b - a}
+    $$
+    Пусть $\tau$ - разбиение отрезка $[a, b]$, причем $\lambda(\tau) < \delta$, тогда
+    $$
+        \omega_i(f) < \cfrac{\eps}{b - a}
+    $$
+    и 
+    $$
+        \sum_{i = 1}^{n} \omega_i(f) \Delta x_i < \cfrac{\eps}{b - a}\sum_{i = 1}^{n} \Delta x_i = \eps
+    $$
+    тогда по критерию Римана, $f \in R[a, b]$.
+\end{proof}
+\subsection{Конечное число точек разрыва}
+\theorem{(о конечном числе точек разрыва)}{Пусть $f$ задана и ограничена на $[a, b]$. Пусть, кроме того, множество точек разрыва - конечно. Тогда функция интегрируема.}
+\begin{proof}
+    Так как функция ограничена, то $|f| \leq C$. Тогда $\omega(f, [a, b]) \leq 2C$ (так как колебание по определению - модуль разности супремума и инфимума, которые могут быть равны C и -C соответственно). Пусть $\eps > 0$. Построим вокруг каждой точки разрыва интервал радиуса $\delta_1 = \cfrac{\eps}{16Ck}$, где $k$ - количество точек разрыва.
+    
 \end{proof}
 \end{document}
