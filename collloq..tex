@@ -35,6 +35,8 @@
 \newcommand*{\definition}[1]{\textbf{Определение.} #1 \newline}
 \newcommand*{\R}{\mathbb{R}}
 \newcommand*{\eps}{\varepsilon}
+\newcommand*{\cf}[2]{\cfrac{#1}{#2}}
+\newcommand*{\D}{\Delta}
 
 \begin{document}
 \tableofcontents
@@ -71,7 +73,7 @@ $$
     $$
         \Psi(x_2) - \Psi(x_1) = \Psi'(\xi)(x_2 - x_1) = 0, \quad \xi \in (x_1, x_2) 
     $$
-    тогда $\Psi'(x) \equiv const$
+    тогда $\Psi(x) \equiv const$
     \newline
     \newline 
     Достаточность. Пусть $F(x) - \Phi(x) = C$ выполнено, тогда $\Phi(x) = F(x) + C$ и тогда
@@ -131,10 +133,10 @@ ladies and gentlemans:
     \end{proof}
     \item \theorem{формулы замены переменной}{Пусть на $\langle a, b \rangle$ существует неопределенный интеграл $\int f(x)dx, \; \varphi(t) \; : \; \langle \alpha, \beta \rangle \to \langle a, b \rangle$, дифференцируема на $\langle \alpha, \beta \rangle$, тогда}
     $$
-        \int f(x)dx = \int f(\varphi(t))\varphi(t)dt 
+        \int f(x)dx = \int f(\varphi(t))\varphi'(t)dt 
     $$
     \begin{proof}
-        Пусть $F(x)$ - первообразная для функции $f(x)$ на $\langle a, b \rangle$, тогда, согласно теореме о производной сложной функции, $F(\varphi(t))$ - первообразная для функции $f(\varphi(t))\varphi(t)$ на $\langle \alpha, \beta \rangle$, откуда и следует равенство.
+        Пусть $F(x)$ - первообразная для функции $f(x)$ на $\langle a, b \rangle$, тогда, согласно теореме о производной сложной функции, $F(\varphi(t))$ - первообразная для функции $f(\varphi(t))\varphi'(t)$ на $\langle \alpha, \beta \rangle$, откуда и следует равенство.
     \end{proof}
     \item \theorem{формула интегрирования по частям}{Пусть $u, v$ - дифференцируемы на $\langle a, b \rangle$ и на этом промежутке существует неопределенный интеграл $\int vdu$, тогда на $\langle a, b \rangle$}
     $$
@@ -318,7 +320,7 @@ $$
 \subsection{Неравенство связывающее суммы и интегралы Дарбу.}
 Для любых разбиений $\tau_1$ и $\tau_2$ отрезка $[a, b]$ выполнено неравенство
 $$
-    s_{\tau_1}(f) \leq I_*(f) \leq I^* \leq S_{\tau_2}(f)
+    s_{\tau_1}(f) \leq I_* \leq I^* \leq S_{\tau_2}(f)
 $$
 доказательство очевидно.
 \subsection{Необходимое условие интегрируемости.}
@@ -523,6 +525,266 @@ $$
 \theorem{(о конечном числе точек разрыва)}{Пусть $f$ задана и ограничена на $[a, b]$. Пусть, кроме того, множество точек разрыва - конечно. Тогда функция интегрируема.}
 \begin{proof}
     Так как функция ограничена, то $|f| \leq C$. Тогда $\omega(f, [a, b]) \leq 2C$ (так как колебание по определению - модуль разности супремума и инфимума, которые могут быть равны C и -C соответственно). Пусть $\eps > 0$. Построим вокруг каждой точки разрыва интервал радиуса $\delta_1 = \cfrac{\eps}{16Ck}$, где $k$ - количество точек разрыва.
-    
+    \begin{figure}[!ht]
+        \begin{center}
+        \includegraphics[scale=0.6]{graphic_scheme.png}\caption{Схематичный график функции с $k$ точек разрыва.}\label{Схематичный график функции с $k$ точек разрыва.}
+        \end{center}
+    \end{figure}
+    Дополнение к этому набору интервалов (к набору интервалов окрестностей $k$ точек) - это набор отрезков(отрезки, где нет точек разрыва), на каждом из которых $f(x)$ - непрерывна, а следовательно равномерно непрерывна. А так как число отрезков конечно($k + 1$ штука), то существует $\delta_2$ такое, что если $x', x''$ из какого-то отрезка и $|x' - x''| < \delta_2$, то
+    $$
+        |f(x') - f(x'')| < \cfrac{\eps}{2(b - a)}
+    $$
+    Пусть $\delta = \min(\delta_1, \delta_2)$ и $\tau$ - разбиение отрезка $[a, b]$ мелкости меньше $\delta$.
+    $$
+        \sum_{i = 1}^{n} \omega_i(f)\Delta x_i = \sum'\omega_i(f)\Delta x_i + \sum''\omega_i(f)\Delta x_i
+    $$
+    где первая сумма - отрезки, не имеющие общих точек с интервалами, а вторая - по всем остальным отрезкам. Поэтому
+    $$
+        \sum'\omega_i(f)\Delta x_i \leq \cfrac{\eps}{2(b-a)}(b-a) = \cfrac{\eps}{2}
+    $$
+    Сумма длин оставшихся частей меньше, чем 
+    $$
+        (\delta + 2\delta_1 + \delta)k \leq \cfrac{\eps}{4C}
+    $$
+    а значит 
+    $$
+        \sum''\omega_i(f)\Delta x_i \leq \cfrac{\eps}{4C}2C = \cfrac{\eps}{2}
+    $$
+    и тогда 
+    $$
+        \sum_{i = 1}^{n} \omega_i(f)\Delta x_i \leq \eps
+    $$
+    в итоге получаем требуемое.
 \end{proof}
+\subsection{Интегрируемость монотонной функции}
+\theorem{(об интегрируемости монотонной функции)}{Заданная и монотонная на отрезке $[a, b]$ функция $f(x)$ интегрируема на этом отрезке.}
+\begin{proof}
+    Рассмотрим два случая:
+    \begin{enumerate}
+        \item Пусть $f(x) \equiv C$ -  интегрируемость очевидна.
+        \item Пусть $f(x) \not \equiv C$ и для определенности не убывает. Пусть $\eps > 0$. Тогда положив $\delta = \cfrac{\eps}{f(b) - f(a)}$ и взяв разбиение $\tau$ отрезка $[a, b]$ мелкости меньше $\delta$, выполняется 
+        $$
+            \sum_{i = 1}^{n} \omega_i \Delta x_i < \cfrac{\eps}{f(b) - f(a)}\sum_{i = 1}^{n}\omega_i(f) = \cfrac{\eps}{f(b) - f(a)}\sum_{i = 1}^{n}(f(x_i) - f(x_{i-1})) = \eps
+        $$
+        (кратко: оценили сверху так, что длина всех отрезков меньше eps/(b-a)) \newline 
+        Значит, согласно критерию Римана, теорема доказана.
+    \end{enumerate}
+\end{proof}
+\section{Свойства интеграла Римана: линейность; аддитивность по промежутку, монотонность, отделимость от нуля, неравенство с модулем.}
+\subsection{Линейность определенного интеграла}
+\theorem{(о линейности определенного интеграла)}{Пусть $f, g \in R[a, b]$, тогда}
+$$
+    \int_{a}^{b} (\alpha f(x) + \beta g(x))dx = \alpha \int_{a}^{b}f(x)dx + \beta \int_{a}^{b} g(x)dx
+$$
+\begin{proof}
+    То, что $\alpha f + \beta g \in R[a, b]$ известно из прошлых теорем. Пусть $I_f = \int_{a}^{b} f(x)dx, I_g = \int_{a}^{b} g(x)dx$. Тогда для разбиения $(\tau, \xi)$ имеем
+    $$
+        \Bigl| \sigma_\tau(\alpha f + \beta g, \xi) - \alpha I_f - \beta I_g \Bigr| \leq |\alpha| \Bigl| \sigma_\tau(f, \xi) - I_f \Bigr| + |\beta| \Bigl| \sigma_\tau(g, \xi) - I_g \Bigr|
+    $$  
+    так как $I_f$ и $I_g$ интегрируемы $\Bigl($то есть модули этих разностей, допустим, меньше $\cfrac{\eps}{2|\alpha|}$ и $\cfrac{\eps}{2|\beta|}$$\Bigr)$ получим требуемое.
+\end{proof}
+\subsection{Аддитивность по промежутку интегрирования}
+\theorem{(о аддитивности промежутка интегрирования)}{Пусть $f \in R[a, b], c \in [a, b]$, тогда}
+$$
+    \int_{a}^{b} f(x)dx = \int_{a}^{c} f(x)dx \int_{c}^{b} f(x)dx
+$$
+\begin{proof}
+    Интегрируемость функциии $f$ на промежутках $[a, c]$ и $[c, b]$ известна. Пусть $\tau$ - разбиение отрезка $[a, b]$, содержащее точку $c$. Тогда оно порождает два разбиения $\tau_1, \tau_2$, причем $\lambda(\tau_1) \leq \lambda(\tau)$ и $\lambda(\tau_2) \leq \lambda(\tau)$. И так как
+    $$
+        \sum_{[a, b]}^{} f(\xi_i)\Delta x_i = \sum_{[a, c]}^{}f(\xi_i)\Delta x_i + \sum_{[c, b]}^{}f(\xi_i)\Delta x_i
+    $$
+    и при $\lambda(\tau) \to 0$ получаем требуемое.
+\end{proof}
+\subsection{Монотонность интеграла}
+\theorem{(о монотонности интеграла)}{Пусть $a \leq b, f, g \in R\in[a, b]$, причем $f(x) \leq g(x), x \in [a, b]$, тогда}
+$$
+    \int_{a}^{b} f(x)dx \leq \int_{a}^{b} g(x)dx
+$$
+\begin{proof}
+    Для интегральных сумм справедливо равенство: 
+    $$
+        \sum_{i = 1}^{n} f(\xi_i)\Delta x_i \leq \sum_{i = 1}^{n} g(\xi_i)\Delta x_i
+    $$
+    переходя к пределу при $\lambda(\tau) \to 0$ получаем требуемое.
+\end{proof}
+.\newline
+\textbf{Важное  следствие}
+\newline 
+Пусть $a \leq b, f \in R[a, b], m = \displaystyle \inf_{x \in [a, b]} f(x), M = sup_{x\in[a,b]}f(x)$, тогда 
+$$  
+    m(b - a) \leq \int_{a}^{b} f(x)dx \leq M(b - a)
+$$  
+\subsection{Отделимость от нуля}
+\theorem{(об отделимости от нуля)}{Пусть $a < b, f \in R[a, b], f \geq 0$ и существует точка $x_0 \in [a, b]$ такая, что $f(x_0) > 0$, причем $f$ непрерывна в $x_0$. Тогда}
+$$
+    \int_{a}^{b} f(x)dx > 0
+$$
+\begin{proof}
+    Так как $f(x) > 0$ и $f$ непрерывнав точке $x_0$, то существует окрестность $U(x_0)$, что при $x \in U(x_0)$ выполняется $f(x) > f(x_0)/2$. Тогда в силу монотонности
+    $$
+        \displaystyle \int_{a}^{b} f(x)dx \geq \int_{[a, b] \cap U(x_0)}^{} f(x)dx > \cfrac{f(x_0)}{2} + \int_{[a, b] \cap U(x_0)}^{} f(x)dx > 0
+    $$
+\end{proof}
+\subsection{Неравенство с модулем}
+\theorem{(о неравенстве с модулем)}{Пусть $f \in R[a, b]$, тогда}
+$$
+    \Biggl| \int_{a}^{b} f(x)dx \Biggr| \leq \Biggl| \int_{a}^{b}|f(x)|dx \Biggr| 
+$$
+\begin{proof}
+    Интегрируемость функции $|f|$ известна. А так как 
+    $$
+        \Biggl| \sum_{i = 1}^{n} f(\xi_i)\Delta x_i \Biggr| \leq \Biggl| \sum_{i = 1}^{n}|f(\xi_i)|\Delta x_i \Biggr|
+    $$
+    то переходя к пределам получим требуемое.
+\end{proof}
+\section{Первая теорема о среднем}
+\theorem{(первая теорема о среднем)}{Пусть $f, g \in R[a, b], g(x)$ не меняет знак на $[a, b], m = \inf f(x), M = \sup f(x)$, тогда}
+$$
+    \exists \mu \in [m, M]: \; \int_{a}^{b} f(x)g(x)dx = \mu\int_{a}^{b} g(x)dx
+$$
+Кроме того, если $f(x) \in C[a, b]$, то
+$$
+    \exists \xi \in [a, b]: \; \int_{a}^{b}f(x)g(x)dx = f(\xi)\int_{a}^{b}g(x)dx
+$$
+\begin{proof}
+    Пусть $g(x) \geq 0$ на отрезке $[a, b]$, тогда
+    $$
+        mg(x) \leq f(x)g(x) \leq Mg(x), \; x \in [a, b]
+    $$
+    и по монотонности интеграла
+    $$
+        m\int_{a}^{b}g(x)dx \leq \int_{a}^{b}f(x)g(x)dx \leq M\int_{a}^{b}g(x)dx
+    $$
+    Если $\int_{a}^{b} g(x)dx = 0$, то $\mu$ - любое число отрезка. А если $\int_{a}^{b}g(x)dx \neq 0$, то $\int_{a}^{b} g(x)dx > 0$ и, поделив на этот интеграл получим
+    $$
+        m \leq \cfrac{\int_{a}^{b}f(x)g(x)dx}{\int_{a}^{b}g(x)dx} \leq M
+    $$
+    Тогда пусть $\mu = \cfrac{\int_{a}^{b}f(x)g(x)dx}{\int_{a}^{b}g(x)dx}$ (напомним, интеграл - это какое-то число). 
+    \newline \newline 
+    Если $f \in C[a, b]$, то по теореме Больцано-Коши для каждого $\mu \in [m, M]$ существует $\xi \in [a, b]$, что $f(\xi) = \mu$.
+\end{proof}
+\section{Интеграл с переменным верхним пределом: определение, непрерывность, дифференциируемость (две теоремы).}
+\definition{Пусть $f \in R[a, b]$ и $x \in [a, b]$. Функция}
+$$
+    \Phi(x) = \int_{a}^{x} f(x)dx
+$$
+называется \textbf{интегралом с переменным верхним пределом}.
+\subsection{Непрерывность $\Phi(x)$}
+\theorem{(о непрерывности $\Phi(x)$)}{}
+$$
+    \Phi(x) \in C[a, b]
+$$
+\begin{proof}
+    Пусть $x_0 \in [a, b], x_0 + \Delta x \in [a, b]$. Так как функция $f \in R[a, b]$, то она ограничена на отрезке, то есть 
+    $$
+        |f(x)| \leq C, \; x \in [a, b]
+    $$
+    и тогда 
+    $$
+        |\Phi(x_0 + \Delta x) - \Phi(x_0)| = \Biggl| \int_{x_0}^{x_0 + \Delta x} f(x)dx \Biggr| \leq \Biggl| \int_{x_0}^{x_0 + \Delta x} |f(x)|dx \Biggr| \leq 
+    $$
+    $$
+        \leq \Biggl| \int_{x_0}^{x_0 + \Delta x} Cdx \Biggr| = C |\Delta x|
+    $$
+    значит при $\Delta x \to 0$ выполняется $\Phi(x_0 + \Delta x) \to \Phi(x_0)$, что и означает непрерывность функции в точке $x_0$, а так как $x_0$ - произвольная точка $[a, b]$, то утверждение доказано.
+\end{proof}
+\subsection{Дифференцируемость $\Phi(x)$}
+\theorem{(о дифференцируемости $\Phi(x)$ или т.Барроу)}{$\Phi(x)$ дифференцируема в точках непрерывности функции $f(x)$, причем}
+$$
+    (\Phi(x))'(x_0) = f(x_0)
+$$
+\begin{proof}
+    Пусть $f(x)$ непрерывна в точке $x_0$ и $x_0 + \Delta x \in [a, b]$.
+    $$
+        \Biggl| \cfrac{\Phi(x_0 + \Delta x) - \Phi(x)}{\Delta x} - f(x_0) \Biggr| = \Biggl| \cf{\int_{x_0}^{x_0 + \D x} f(x)dx - f(x_0)\D x}{\D x} \Biggr| =
+    $$
+    $$
+        \Biggl| \cf{\int_{x_0}^{x_0 + \D x} (f(x) - f(x_0))dx}{\D x} \Biggr|
+    $$
+    (последний переход - сворачивание $f(x_0)\D x$ как интеграла по такому же промежутку)
+    \newline 
+    Пусть $\eps > 0$, тогда (так как $f(x)$ непрерывна)
+    $$
+        \exists \delta > 0: \; \forall x \in [a, b]: \; |x - x_0| < \delta \Rightarrow |f(x) - f(x_0)| < \eps
+    $$
+    Пусть $\D x < \delta$ ($x - x_0 < \delta$), тогда 
+    $$
+        \Biggl| \cf{\int_{x_0}^{x_0 + \D x} (f(x) - f(x_0))dx}{\D x} \Biggr| \leq \Biggl| \cf{\int_{x_0}^{x_0 + \D x} |f(x) - f(x_0)|dx}{\D x} \Biggr| < \Biggl| \cf{\int_{x_0}^{x_0 + \D x} \eps \cdot dx}{\D x} \Biggr| = \eps
+    $$
+    что означает, что (по определению производной)
+    $$
+        \displaystyle \limToZero{\D x}{\cf{\Phi(x_0 + \D x) - \Phi(x_0)}{\D x}} = f(x_0)
+    $$
+\end{proof}
+\section{Формула Ньютона-Лейбница. Усиленная формула и обобщенная формула.}
+\subsection{Формула Ньютона-Лейбница}
+\theorem{(Формула Ньютона-Лейбница)}{Пусть $f(x) \in C[a, b]$ и $F(x)$ - ее первообразная. Тогда}
+$$
+    \int_{a}^{b} f(x)dx = F(x)\Bigr|_{a}^{b} = F(b) - F(a)
+$$  
+\begin{proof}
+    Любая первообразная непрерывной функции имеет вид: 
+    $$
+        F(x) = \int_{a}^{x} f(x)dx + C
+    $$
+    Так как 
+    $$
+        F(A) = \int_{a}^{a} f(x)dx + C = C
+    $$
+    то $C = F(a)$. Положив в равенстве
+    $$
+        F(x) = \int_{a}^{x} f(x)dx + F(a)
+    $$
+    то при $x = b$ получается 
+    $$
+        F(b) = \int_{a}^{b} f(x)dx + F(a) \Rightarrow \int_{a}^{b} f(x)dx = F(b) - F(a)
+    $$
+\end{proof}
+\subsection{Усиленная формула Ньютона-Лейбница}
+\theorem{(Усиленная формула Ньютона-Лейбница)}{Пусть $f \in R[a, b]$ и существует некоторая первообразная $F(x)$ на $[a, b]$, тогда}
+$$
+    \int_{a}^{b} f(x)dx = F(x)\Bigr|_{a}^{b} = F(b) - F(a)
+$$
+\begin{proof}
+    Пусть $x_k = a + \cf{k(b - a)}{n}$, $k \in \{ 0, 1, 2, \dots, n \}$ - разбиение (кстати равномерное) отрезка. Тогда 
+    $$
+        F(b) - F(a) = F(x_n) - F(x_0) = \sum_{k = 1}^{n} (F(x_k) - F(x_{k - 1}))
+    $$
+    Согласно теореме Лагранжа, существует $\xi^n_k \in (x_k, x_{k - 1})$ такое, что
+    $$
+        F(x_k) - F(x_{k - 1}) = f(\xi_k^n)(x_k - x_{k - 1})
+    $$
+    а тогда 
+    $$
+        F(b) - F(a) = \sum_{k = 1}^{n} f(\xi_k^n)\D x_k
+    $$
+    перейдя к пределу с $n \to +\infty$ получим
+    $$
+        \limToInf{n}{\sum_{k = 1}^{n}f(\xi_k^n)\D x_k} = \int_{a}^{b}f(x)dx
+    $$
+    что и завершает доказательство.
+\end{proof}
+Эта формула работает для любой первообразной $f(x)$.
+\subsection{Обобщенная формула Ньютона-Лейбница}
+\theorem{(Обобщение формулы Ньютона-Лейбница)}{Пусть $f(x) \in R[a, b]$ и $F(x)$ - обобщенная первообразная функции $f(x)$, тогда}
+$$
+    \int_{a}^{b}f(x)dx = F(b) - F(a)
+$$ 
+\begin{proof}
+    Пусть $\alpha_1, \alpha_2, \dots, \alpha_{k-1}$ - точки внутри $(a, b)$, в которых нарушено $F'(x) = f(x)$. Добавим к ним $\alpha_0 = a$, $\alpha_k = b$. Так как интеграл - непрерывная функция по обоим пределам, то
+    $$
+        \int_{\alpha_{p - 1}}^{\alpha_p} f(x)dx = \limToZero{\eps}{\int_{\alpha_{p-1} + \eps}^{\alpha_p - \eps} f(x)dx} = \limToZero{\eps}{(F(\alpha_p - \eps) - F(\alpha_{p - 1} + \eps))} = 
+    $$
+    $$
+        = F(\alpha_p) - F(\alpha_{p - 1})
+    $$
+    где последнее - так как функция непрерывна. Тогда 
+    $$
+        \int_{a}^{b} f(x)dx = \sum_{p = 1}^{k} \int_{\alpha_{p-1}}^{\alpha_p}f(x)dx = \sum_{p = 1}^{k} F(\alpha_p) - F(\alpha_{p - 1}) = 
+    $$
+    $$
+        F(\alpha_k) - F(\alpha_0) = F(b) - F(a)
+    $$
+\end{proof}
+
 \end{document}
