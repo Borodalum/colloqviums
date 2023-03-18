@@ -179,7 +179,7 @@ $$
 \newline 
 \definition{Пусть функция $f(x)$ задана на отрезке $[a, b]$. Говорят, что число $I$ является \textbf{интегральном Римана} от функции $f(x)$ по отрезку $[a, b]$, если}
 $$
-    \forall \varepsilon > 0 \; \exists \delta \; : \: \forall \tau \; : \; \lambda(\tau) < \delta, \; \forall \varepsilon \; \Rightarrow |\sigma_\tau(f, \xi) - I| < \varepsilon
+    \forall \varepsilon > 0 \; \exists \delta \; : \: \forall \tau \; : \; \lambda(\tau) < \delta, \; \forall \xi \; \Rightarrow |\sigma_\tau(f, \xi) - I| < \varepsilon
 $$
 при этом пишут 
 $$
@@ -378,7 +378,7 @@ $$
             I_* = \displaystyle \sup_\tau s_\tau \quad \Rightarrow \quad \exists\tau_1 \; : \; s_{\tau_1} > I_* - \cfrac{\varepsilon}{4}
         $$
         $$
-            I^* = \displaystyle \inf\tau S_\tau \quad \Rightarrow \quad \exists\tau_2 \; : \; S_{\tau_2} > I^* + \cfrac{\varepsilon}{4}
+            I^* = \displaystyle \inf_\tau S_\tau \quad \Rightarrow \quad \exists\tau_2 \; : \; S_{\tau_2} > I^* + \cfrac{\varepsilon}{4}
         $$
         %% илья дотехай пж
     \end{itemize}
@@ -786,5 +786,82 @@ $$
         F(\alpha_k) - F(\alpha_0) = F(b) - F(a)
     $$
 \end{proof}
-
+\section{Формула интегрирования по частям. Формула замены переменной.}
+\subsection{Формула интегрирования по частям}
+\theorem{(формула интегрирования по частям)}{Пусть $u, v$ - дифференцируемы на $[a, b]$, причем $u', v' \in R[a, b]$, тогда}
+$$
+    \int_{a}^{b} udv = uv\Bigr|^{b}_{a} - \int_{a}^{b} vdu
+$$
+\begin{proof}
+    Очевидно, что $uv' \in R[a, b]$ и $u'v \in R[a, b]$. Кроме того, $(uv)' = u'v + v'u \in R[a, b]$, а значит, по усиленной формуле Ньютона-Лейбница
+    $$
+        \int_{a}^{b}u'vdx + \int_{a}^{b}uv'dx = \int_{a}^{b}(u'v + v'u)dx = \int_{a}^{b}(uv)'dx = uv\Bigr|^{a}_{b}
+    $$
+\end{proof}
+\subsection{Формула замены переменной}
+\theorem{(формула замены переменной)}{Пусть $f(x) \in C[a, b], x = \phi(t)\;:\; [\alpha, \beta] \to [a, b], \phi(t)$ дифференцируема и $\phi'(t) \in R[\alpha, \beta]$, тогда}
+$$
+    \int_{\phi(\alpha)}^{\phi(\beta)} f(x)dx = \int_{\alpha}^{\beta} f(\phi(t))\phi'(t)dt
+$$
+\begin{proof}
+    Интеграл от правой части определен. По свойствам интегрируемых функций $f(\phi(t))\phi'(t) \in R[\alpha, \beta]$, причем $F(\phi(t))$ - первообразная этой функции, если $F(x)$ - первообразная $f(x)$. Тогда
+    $$
+        \int_{\alpha}^{\beta} f(\phi(t))\phi'(t)dt = F(\phi(\beta)) - F(\phi(\alpha)) = \int_{\phi(\alpha)}^{\phi(\beta)} f(x)dx
+    $$
+\end{proof}
+\section{Интеграл от четной, нечетной и периодический функции. Изменение функции в конечном числе точек.}
+\subsection{Интеграл четной функции}
+\theorem{}{Пусть $f \in R[0, a]$ и является четной. Тогда}
+$$
+    \int_{-a}^{a} f(x)dx = 2\int_{0}^{a} f(x)dx
+$$
+\begin{proof}
+    Функция четна $(f(-x) = f(x))$, значит $f \in R[-a, a]$.
+    $$
+        \int_{-a}^{a}f(x)dx = \int_{-a}^{0}f(x)dx + \int_{0}^{a}f(x)dx 
+    $$
+    В первом интеграле замена $t = -x, \; dt = -dx$
+    $$
+        \int_{-a}^{a} f(x)dx = \int_{0}^{a} f(t)dt + \int_{0}^{a}f(x)dx = 2\int_{0}^{a} f(x)dx 
+    $$
+\end{proof}
+\subsection{Интеграл нечетной функции}
+\theorem{}{Пусть $f \in R[0, a]$ и является нечетной. Тогда}
+$$
+    \int_{-a}^{a}f(x)dx = 0
+$$  
+\begin{proof}
+    аналогично четной функции, но при замене $f(t) = -f(t)$ и минус не уйдет.
+\end{proof}
+\subsection{Интеграл периодической функции}
+\theorem{}{Пусть $f \in R[0, T]$ и является периодической с периодом $T$. Тогда}
+$$
+    \int_{a}^{a + T} f(x)dx = \int_{0}^{T}f(x)dx, \; a \in \R
+$$
+\begin{proof}
+    Сделаем замену $t = x - a$
+    $$
+        \int_{a}^{a + T} f(x)dx = \int_{0}^{T} f(t)dt
+    $$
+\end{proof}
+\subsection{Теорема об изменении функции в конечном числе точек}
+\theorem{(об изменении функции в конечном числе точек)}{Пусть $g \in R[a, b], f: [a, b] \to \R, f(x) = g(x)$ для $\forall x \in [a, b]$ кроме конечного числа точек. Тогда }
+$$
+    \int_{a}^{b}g(x)dx = \int_{a}^{b}f(x)dx
+$$
+\begin{proof}
+    Пусть $f(x) = g(x)$ на $[a, b]$ везде, кроме точки $c$. Построим интегральную сумму для $f$
+    $$
+        \sigma_\tau (f, \xi) = \sum_{i = j}^{} f(\xi_i)\D x_i + f(\xi_j)\D x_j
+    $$
+    тогда, так как $f = g$ везде, кроме $c$
+    $$
+        \sigma_\tau(f, \xi) = \sigma_\tau(g, \xi) - g(\xi_j)\D x_j + f(\xi_j)\D x_j
+    $$
+    перейдя к пределу при $\lambda(\tau) \to 0$
+    $$
+        I = I - 0 + 0 = I
+    $$
+\end{proof}
+%\section{Площадь фигуры. Свойства площади. Площадь криволинейной трапеции и фигуры, ограниченной графиками двух функций и вертикальными линиями.}
 \end{document}
