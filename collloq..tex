@@ -32,12 +32,19 @@
 \newcommand*{\limToZero}[2]{\displaystyle \lim_{#1 \to 0} #2}
 \newcommand*{\lemma}[1]{\textbf{Лемма.} #1. \newline}
 \newcommand*{\theorem}[2]{\textbf{Теорема #1. } #2 \newline}
+\newcommand*{\notabene}[1]{\textit{Notabene. #1.} \newline}
 \newcommand*{\definition}[1]{\textbf{Определение.} #1 \newline}
 \newcommand*{\R}{\mathbb{R}}
 \newcommand*{\eps}{\varepsilon}
 \newcommand*{\cf}[2]{\cfrac{#1}{#2}}
 \newcommand*{\D}{\Delta}
-
+\newcommand*{\p}[1][n]{P_{#1}(x)}
+\newcommand*{\Q}[1][m]{Q_{#1}(x)}
+\newcommand*{\Rfrac}[2]{\frac{\p{#1}}{\Q{#2}}}
+\newcommand*{\sfrac}{\frac{A}{(x - a)^k}}
+\newcommand*{\Sfrac}{\frac{Ax+B}{(x^2 + px + q)^k}}
+\newcommand*{\PAdv}[2]{P_{#1}^{#2}(x)}
+\newcommand*{\QAdv}[2]{Q_{#1}^{#2}(x)}
 \begin{document}
 \tableofcontents
 \maketitle
@@ -154,7 +161,184 @@ ladies and gentlemans:
     \end{proof}
 \end{enumerate}
 \section{Интегрирование рациональных дробей. Теорема о разложении на простейшие дроби и две леммы.}
-% илья затехает
+\subsection{Некоторые понятия из теории многочленов}
+\definition{\textbf{Многочленом (полиномом)} будем называть функцию $\p$ степени $n\geq1$ вида
+$$
+    \p = a_0 + a_1x + a_2x^2 + ... + a_nx^n,
+$$
+где $a_i \in \mathbb{R}, a_n \neq 0$. Под многочленом нулевой степени будем подразумевать константу.
+}
+\definition{\textit{Рациональной дробью} называется дробь $/Rfrac{}{}$, где $\p$ - многочлен степени $n$, $\Q{}$ - многочлен степени $m$.}
+\definition{\textit{Рациональная дробь} называется правильной, если $n < m$, иначе она называется неправильной.}
+\lemma{Пусть $\Rfrac{}{}$ - неправильная дробь. Тогда существует единственное представление 
+$$
+    \Rfrac{}{} = R_{n - m}(x) + \frac{T_k(x)}{Q_m(x)},
+$$
+где $R_{n - m}$ - многочлен степени $(n - m)$, $T_k(x)$ - многочлен степени $k$, причем $k < m$.
+}
+\theorem{}{Пусть $\p$ - многочлен $n$-степени, у которого коэффициент при старшей степени равен единице. Тогда он может быть разложен на множители следующим образом
+$$
+    \p = (x - a)^{k_1} \cdot (x-a_2)^{k_2}\cdot...\cdot (x - a_p)^{k_p} \cdot (x^2 + b_1x + c_1) \cdot ... \cdot (x^2 + b_m+c_m)^{l_m},
+$$
+где
+$$
+    k_p, l_m \in \mathbb{N}, D = b_m^2 - 4c_m < 0, k_1 + k_2 + ... + k_p + 2 \cdot (l_1 + ... + l_m) = n
+$$
+}
+\notabene{Условия $b_i^2 - 4c_i < 0$ означают, что квадратные трехчлены $x^2 + b_ix + c_i$ не имеют вещественных корней. В этом случае они имеют два комплексно-сопряженных корня $\alpha \pm \beta i$}
+\subsection{Разложение рациональной дроби на простейшие}
+\definition{Будем называть простейшими дроби вида: 
+$$
+    \sfrac, \Sfrac,
+$$
+где $k \in \mathbb{N}$
+}
+\lemma{Пусть $\Rfrac{}{}$ - правильная рациональная дробь и $\Q{} = (x - a)^k \cdot \Tilde{Q}(x)$, где $\Tilde{Q}(a) \neq 0$. Существует число $A \in \mathbb{R}$ и многочлен $\Tilde{P}(x)$, такие что существует единственное представление
+$$
+    \Rfrac{}{} = \sfrac + \frac{\Tilde{P}(x)}{(x - a)^{k - 1} \cdot \Tilde{Q}(x)},
+$$
+}
+\begin{proof}
+    \textit{\\\\Существование}
+    Рассмотрим разность 
+    $$ 
+        \Rfrac{}{} - \sfrac = \frac{P_n(x)}{(x - a)^k \cdot \Tilde{Q}_m(x)} - \sfrac = \frac{\p{} - A \cdot \Tilde{Q}_m(x)}{(x - a)^k \cdot \Tilde{Q}_m(x)}
+    $$
+    Выберем число А так, чтобы число $A$ так, чтобы число $a$ было корнем числителя. 
+    $$
+        P_n(a) - A \cdot \Tilde{Q}(x) = 0 \Rightarrow A = \frac{P_n(a)}{\Tilde{Q}(a)}, (\Tilde{Q}(a) \neq 0)
+    $$
+    В числителе стоит многочлен $\p - A \cdot \Tilde{Q}(x)$ с корнем $a$. Значит, числитель можно разложить как $(x - a) \cdot \Tilde{P}(x)$. 
+    $$
+        \frac{\p - A \cdot \Tilde{Q}(x)}{(x - a)^k \cdot \Tilde{Q}(x)} = \frac{(x - a) \cdot \Tilde{P}(x)}{(x - a)^k \cdot \Tilde{Q}(x)} = \frac{\Tilde{P}(x)}{(x - a)^{k - 1} \cdot \Tilde{Q}(x)}.
+    $$
+    \textit{Единственность}
+    Пусть существует два разложения
+    $$
+        \Rfrac{}{} = \frac{A_1}{(x - a)^k} + \frac{\Tilde{P_1}(x)}{(x-a)^{k-1} \cdot \Tilde{Q}(x)} = \frac{A_2}{(x - a)^k} + \frac{\Tilde{P_2}(x)}{(x-a)^{k-1} \cdot \Tilde{Q}(x)}
+    $$ 
+    Домножая на $(x - a)^k \cdot \Tilde{Q}(x)$, получаем:
+    $$
+        A_1 \cdot \Tilde{Q}(x) + \Tilde{P_1}(x) \cdot (x - a) = A_2 \cdot \Tilde{Q}(x) + \Tilde{P_2}(x) \cdot (x - a), (\forall x \in \mathbb{R})
+    $$
+    Пусть $x = a$, тогда: 
+    $$
+        A_1 \cdot \Tilde{Q}(a) = A_2 \cdot \Tilde{Q}(a)
+    $$
+    Так как $\Tilde{Q}(a) \neq 0 \Rightarrow A_1 = A_2$, значит коэффициенты многочлена $\Tilde{P}$ также можно вычислить однозначно - \textbf{противоречие}
+\end{proof}
+\lemma{Пусть $\Rfrac{}{}$ - правильная рациональная дробь и $\Q = (x^2 + px + q)^k \cdot \Tilde{Q}(x), p^2 - 4q < 0, \alpha \pm \beta i$ - комплексно-сопряженные корни квадратного трехчлена $x^2 + px + q$, причем $\Tilde{Q}(\alpha + \beta i) \neq 0$. Существуют единственные чисал $A, B \in \R$ и многочлен $\Tilde{P}(x)$ такие, что cуществует единственное представление
+$$
+    \Rfrac{}{} = \Sfrac + \frac{\Tilde{P}(x)}{(x^2 + px + q)^{k - 1} \cdot \Tilde{Q}(x)}
+$$
+}
+\begin{proof}
+    \textit{\\\\Существование}
+    $$
+        \Rfrac{}{} - \Sfrac = \frac{\p - (Ax + B) \cdot \Tilde{Q}(x)}{(x^2 + px + q)^k \cdot \Tilde{Q}(x)}
+    $$
+    Выберем такие $A, B$, что $\alpha + \beta i$ корень числителя, то есть чтобы
+    $$
+        P_n(\alpha + \beta i) - (A(\alpha + \beta i) + B) \cdot \Tilde{Q}(\alpha + \beta i) = 0
+    $$
+    Так как значение многочлена в точке - комплексное число, то
+    \begin{equation*}
+        \begin{cases}
+            P_n(\alpha + \beta i) = P_1 + iP_2,
+            \\
+            \Tilde{Q}(\alpha + \beta i) = \Tilde{Q_1} + i\Tilde{Q_2},
+        \end{cases}
+    \end{equation*}
+    где $P_1, P_2, \Tilde{Q_1}, \Tilde{Q_2} \in \mathbb{R}$ и $\Tilde{Q_1^2} + \Tilde{Q_2^2} \neq 0$, так как по условию $\Tilde{Q}(\alpha + \beta i) \neq 0$. Тогда последнее уравнение примет вид
+    $$ 
+        P_1 + iP_2 - (A\alpha + iA\beta + B) \cdot (\Tilde{Q_1} + i\Tilde{Q_2}) = 0
+    $$
+    Что эквивалентно
+    $$
+        (P_1 - A(\alpha\Tilde{Q_1} - \beta\Tilde{Q_2}) - B\Tilde{Q_1}) + i(P_2 - A(\alpha\Tilde{Q_2} + \beta\Tilde{Q_1}) - B\Tilde{Q_2}) = 0 + 0 \cdot i
+    $$ 
+    Таким образом получим:
+    \begin{equation*}
+        \begin{cases}
+            A(\alpha\Tilde{Q_1} - \beta\Tilde{Q_2}) - B\Tilde{Q_1} = P_1
+            \\
+            A(\alpha\Tilde{Q_2} + \beta\Tilde{Q_1}) - B\Tilde{Q_2} = P_2
+        \end{cases}
+    \end{equation*}
+    Вычислим определитель данной системы:
+    $$
+        \Delta = (\alpha\Tilde{Q_1} - \beta\Tilde{Q_2})\Tilde{Q_2} - \Tilde{Q_1}(\alpha\Tilde{Q_2} + \beta\Tilde{Q_1}) = - \beta(\Tilde{Q_1^2} + \Tilde{Q_2^2}) \neq 0
+    $$
+    Значит при можно найти такие $A, B$, что $\alpha \pm \beta i$ корень числителя. Значит, числитель $\p - (Ax + B) \cdot \Tilde{\Q} = (x^2 + px + q) \cdot \Tilde{\p}$,
+    причем
+    $$
+        \Rfrac{}{} - \Sfrac = \frac{(x^2 + px + q) \cdot \Tilde{\p}}{(x^2 + px + q)^k \cdot \Tilde{\Q}} = \frac{\Tilde{P}(x)}{(x^2 + px + q)^{k - 1} \cdot \Tilde{Q}(x)}.
+    $$
+    \textit{Единственность}
+    Пусть существует два разложения
+    $$
+        \Rfrac{}{} = \frac{A_1x + B_1}{(x^2 + px + q)^k} + \frac{\Tilde{P_1}(x)}{(x^2 + px + q)^{k-1} \cdot \Tilde{Q}(x)} = \frac{A_2x + B_2}{(x^2 + px + q)^k} + \frac{\Tilde{P_2}(x)}{(x^2 + px + q)^{k-1} \cdot \Tilde{Q}(x)}
+    $$ 
+    Домножая на $(x^2 + px + q)^k \cdot \Tilde{Q}(x)$, получаем:
+    $$
+        (A_1x+B_1) \cdot \Tilde{Q}(x) + \Tilde{P_1}(x) \cdot (x^2 + px + q) = (A_2x + B_2) \cdot \Tilde{Q}(x) + \Tilde{P_2}(x) \cdot (x^2 + px + q), (\forall x \in \mathbb{C})
+    $$
+    Пусть $x = \frac{1}{2} \cdot \left(\sqrt{p^2 - 4q} - p\right)$ тогда: 
+    $$
+        \left(A_1 \cdot \frac{1}{2} \cdot \left(\sqrt{p^2 - 4q} - p\right)+B_1\right) \cdot \Tilde{Q}\left(\frac{1}{2} \cdot \left(\sqrt{p^2 - 4q} - p\right)\right) = \left(A_2 \cdot \frac{1}{2} \cdot \left(\sqrt{p^2 - 4q} - p\right) + B_2 \right) \cdot \Tilde{Q}\left(\frac{1}{2} \cdot \left(\sqrt{p^2 - 4q} - p\right)\right)
+    $$
+    Так как $\Tilde{Q}\left(\frac{1}{2} \cdot \left(\sqrt{p^2 - 4q} - p\right)\right) \neq 0 \Rightarrow A_1 = A_2, B_1 = B_2$, значит коэффициенты многочлена $\Tilde{P}$ также можно вычислить однозначно - \textbf{противоречие}
+\end{proof}
+\theorem{}{Любая рациональная дробь может быть представлена единственным образом в виде
+    $$
+        \Rfrac{}{} = R_{n - m}(x) + \frac{A_{11}}{(x - a)^{k-1}} + ... + \frac{A_{1k_1}}{(x - a_1)} +
+    $$
+    $$
+        + \frac{A_{s1}}{(x - a)^{k_s}} + ... + \frac{A_{sk_s}}{(x - a_s)} + \frac{B_{11}x + C_{11}}{(x^2 + p_1x + q_1)^{l_1}} + ... + \frac{B_{1l_1}x + C_{1l_1}}{x^2 + p_1x + q_1} +
+    $$
+    $$
+    + \frac{B_{t1}X + C_{t1}}{(x^2 + p_tx + q_t)^{l_t}} + ... + \frac{B_{tl_t}X + c_{tl_t}}{x^2 + p_tx + q},
+    $$
+    где $A_{ij}, B_{ij}, C_{ij} \in \R, R_{n-m}(x)$ - многочлен степени $(n - m)$ и знаменатель исходной дроби имеет Разложение
+    $$
+        \Q = (x - a_1)^{k_1} \cdot ... \cdot (x - a_s)^{k_s} \cdot (x^2 + p_qx + q_1)^{l_1} \cdot ... \cdot (x^2 + p_tx + q_t)^{l_t}.
+    $$
+}
+\begin{proof}
+    Если в рациональной дроби степень числителя больше степени знаменателя, то ее можно представить в виде суммы многочлена и правильной дроби. То есть нам достаточно рассмотреть случай правильной несократимой дроби $\frac{T_k(x)}{Q_m(x)}, k < m$. Тогда согласно первой лемме: 
+    $$
+        \Rfrac{}{} = \frac{A_{11}}{(x - a_1)^{k-1}} + \frac{\Tilde{P}^{(11)}}{(x - a_1)^{k_1 - 1} \cdot \Tilde{Q}^{(1)}(x)},
+    $$ 
+    где $\Tilde{\Q}^{(1)} = (x - a_2)^{k_2} \cdot ... \cdot (x - a_s)^{k_s} \cdot (x^2 + p_1x + q_1)^{l_1} \cdot ... \cdot (x^2 + p_tx + q_t)^{l_t}.$ Далее по все той же лемме можно найти число $A_{12}$ и многочлен $\Tilde{P}^{(12)}(x)$ такие, что 
+    $$
+        \frac{\Tilde{P}^{(11)}}{(x - a)^{k_1 - 1} \cdot \Tilde{Q}^{(1)}(x)} = \frac{A_{12}}{(x - a_1)^{k_1 - 1}} + \frac{\Tilde{P}^{(12)}(x)}{(x - a_1)^{k_1 - 2} \cdot \Tilde{Q}^{(1)}(x)}. 
+    $$
+    Продолжая аналогичные рассуждения получим 
+    $$
+        \Rfrac{}{} = \frac{A_{11}}{(x - a_1)^{k_1}} + \frac{A_{12}}{(x - a_1)^{k_1 - 1}} + ... + \frac{A_{1k_1}}{(x - a_1)} + \frac{\Tilde{P}^{(1k_1)(x)}}{\Tilde{Q}^{(1)}(x)}.
+    $$
+    Аналогично, для всех вещественных корней знаменателя $a_i$ кратности $k_i, i = 1...s$, получим
+    $$
+        \Rfrac{}{} = \frac{A_{11}}{(x - a_1)^{k_1}} + ... + \frac{A_{1k_1}}{(x - a_1)} + \frac{A_{21}}{(x - a_2)^{k_2}} + ... + \frac{A_{2k_1}}{(x - a_2)} + ... +
+    $$
+    $$
+        \frac{A_{s1}}{(x - a_s)^{k_s}} + ... + \frac{A_{sk_s}}{(x - a_s)} + \frac{\Tilde{P}^{(sk_s)}}{\Tilde{Q}^{(s)}(x)},
+    $$
+    где $\Tilde{Q}^{(s)}(x) = (x^2 + p_1x + q_1)^{l_1} \cdot ... \cdot (x^2 + px + q_t)^{l_t}$, при это дробь $\frac{\Tilde{P}^{(sk_s)}(x)}{\Tilde{Q}^{(s)}(x)}$ - правильная. Далее используя вторую лемму:
+    $$
+        \frac{\Tilde{P}^{(sk_s)}}{\Tilde{Q}^{(s)}} = \frac{B_{11}x + C_{11}}{(x^2 + p_1x + q_1)^{l_1}} + \frac{\Hat{P}^{(11)}}{(x^2 + p_1x + q_1)^{l_1 - 1} \cdot \Hat{Q}^{(1)}},
+    $$
+    где $\Hat{Q}^{(1)} = (x^2 + px + q_2)^{l_1} \cdot ... \cdot (x^2 + p_t + q_t)^{l_t}$. Продолжая рассуждения, мы обнаружим, что каждой $t$ паре комплексно-сопряженных корней знаменателя кратности $l_t$ будут соответствовать $l_t$ простейших дробей третьего и четвертого типа. В результате:
+    $$
+        \Rfrac{}{} = \frac{A_{11}}{(x - a_1)^{k_1}} + ... + \frac{A_{1k_1}}{(x - a_1)} + + \frac{A_{21}}{(x - a_2)^{k_2}} + ... + \frac{A_{2k_1}}{(x - a_2)} + ... +
+    $$
+    $$
+        \frac{A_{s1}}{(x - a_s)^{sk_s}} + ... + \frac{A_{sk_s}}{(x - a_s)} + \frac{B_{11}x + C_{11}}{(x^2 + p_1x + q_1)^{l_1}} + ... + \frac{B_{1l_1x + C_{1l_1}}}{(x^2 + p_1x + q_1)} + 
+    $$
+    $$  
+        \frac{B_{21}x + C_{21}}{(x^2 + p_2x + q_2)^{l_2}} + ... + \frac{B_{2l_2x + C_{2l_2}}}{(x^2 + p_2x + q_2)} + ... + \frac{B_{t1}x + C_{t1}}{(x^2 + p_tx + q_t)^{l_t}} + ... + \frac{B_{tl_t}x + C_{tl_t}}{x^2 + p_tx + q_t}.
+    $$
+\end{proof}
 \section{Интегрирование простейших дробей}
 % илья затехает
 \section{Определение интеграла Римана. Пример неинтегрируеммой функции.}
