@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage[normalem]{ulem}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{arcs}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{stackrel}
+\usepackage{xcolor}
+\usepackage{cancel}
+
+\makeatother
+\makeatletter
+
+\title{\textbf{Билеты к коллоку}}
+\author{i.g. i.a.}
+\date{x марта 2023 г.}
+
+% \newcommand*{\limToInf}[2]{\displaystyle \lim_{#1 \to \infty} #2}
+% \newcommand*{\limToZero}[2]{\displaystyle \lim_{#1 \to 0} #2}
+\newcommand*{\lemma}[1]{\textbf{Лемма.} #1. \newline}
+\newcommand*{\theorem}[2]{\textbf{Теорема#1. } #2 \newline}
+\newcommand*{\notabene}[1]{\textit{Notabene. #1.} \newline}
+\newcommand*{\definition}[1]{\textbf{Определение.} #1 \newline}
+\newcommand*{\Hom}[2]{Hom$_\mathbb{K}(#1, #2)$}
+% \newcommand*{\eps}{\varepsilon}
+% \newcommand*{\cf}[2]{\cfrac{#1}{#2}}
+% \newcommand*{\D}{\Delta}
+% \newcommand*{\p}[1][n]{P_{#1}(x)}
+% \newcommand*{\Q}[1][m]{Q_{#1}(x)}
+% \newcommand*{\Rfrac}[2]{\frac{\p{#1}}{\Q{#2}}}
+% \newcommand*{\sfrac}{\frac{A}{(x - a)^k}}
+% \newcommand*{\Sfrac}{\frac{Ax+B}{(x^2 + px + q)^k}}
+% \newcommand*{\PAdv}[2]{P_{#1}^{#2}(x)}
+% \newcommand*{\QAdv}[2]{Q_{#1}^{#2}(x)}
+
+\begin{document}
+\tableofcontents
+\maketitle
+
+\section{Линейный оператора: определение, примеры}
+\definition{Отображение $\varphi: X \to Y$ линейного пространства $X$ в линейное пространство $Y$ называется \textbf{линейным оператором}, если $\forall x, x_1, x_2 \in X, \quad \forall \alpha \in \mathbb{K}$}
+$$
+    \varphi(x_1 + x_2) = \varphi(x_1) + \varphi(x_2), \quad \varphi(\alpha x) = \alpha \varphi(x)
+$$
+\notabene{Множество линейных операторов из $X(\mathbb{K})$ в $Y(\mathbb{K})$ обозначается \Hom{X}{Y}}
+\newline
+\notabene{Оператор $\varphi: X \to X$, отображающий $X$ в себя, называют \textit{эндоморфизмом} и пишут $\varphi \in \text{End}(X)$, а в случае отображения на себя - \textit{автоморфизмом}}
+\newline
+\textbf{Примеры:} 
+\begin{enumerate}
+    \item \textit{Нульоператор: } $\Theta: X \to Y, \quad \Theta x = 0_Y$
+    \item \textit{Единичный оператор или тождественный: } $\mathcal I: X \to Y, \quad \mathcal Ix = x$
+    \item \textit{Проекторы: } $\mathcal P_{L_1}^{|| L_2}: X \to X, \quad X = L_1 \oplus L_2 \quad \mathcal P_{L_1}^{|| L_2} x = x_1, \quad x_1 \in L_1$
+\end{enumerate}
+\section{Ядро и образ линейного оператора: теорема о ядре и образе}
+
+\end{document}
