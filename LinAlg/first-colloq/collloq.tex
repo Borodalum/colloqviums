@@ -63,5 +63,212 @@ $$
     \item \textit{Проекторы: } $\mathcal P_{L_1}^{|| L_2}: X \to X, \quad X = L_1 \oplus L_2 \quad \mathcal P_{L_1}^{|| L_2} x = x_1, \quad x_1 \in L_1$
 \end{enumerate}
 \section{Ядро и образ линейного оператора: теорема о ядре и образе}
-
+\definition{\textbf{Ядром} линейного оператора $\varphi \in$ \Hom{X}{Y} называется подмножество $X$: }
+$$
+    \ker \varphi = \{ x \in X: \quad \varphi(x) = 0\}
+$$
+\definition{\textbf{Образом} линейного отображения $\varphi \in$ \Hom{X}{Y} называется подмножество $Y$:}
+$$
+    \text{Im} \varphi = \{ y \in Y: \quad \exists x \in X \quad \varphi(x) = y\} = \varphi(X)
+$$
+\notabene{Образ и ядро являются линейными подпространствами.}
+\theorem{(база)}{Пусть $\varphi \in$ \Hom{X}{Y}, тогда имеет место изоморфизм}
+$$
+    X/\ker \varphi \simeq \text{Im} \varphi
+$$
+\begin{proof}
+    Отображение $\bar \varphi: X/\ker \varphi \to \text{Im} \varphi$, заданное как 
+    $$
+        x + \ker \varphi \mapsto \varphi(x)
+    $$
+    Гомоморфно (выполнена линейность), сюрьективно и инъективно - а значит является изоморфизмом.
+\end{proof}
+.\newline
+\definition{Пусть $L \leq X$ - линейное подпространство $X$. Набор $\{ v_j \}^m_{j = 1} \in X$ называется \textbf{линейно независимым над $\mathbb{K}$ относительно $L$}, если}
+$$
+    \lambda_1 v_1 + \lambda_2 v_2 + \dots + \lambda_m v_m \in L \quad \Rightarrow \quad \lambda_1 = \lambda_2 = \dots = \lambda_m = 0
+$$
+то есть набор векторов ЛНЗ между собой и любыми векторами из $L$.
+\newline
+\newline
+\definition{Говорят, что $\{ v_j \}^m_{j = 1}$ \textbf{порождает} $X$ относительно $L$, если}
+$$
+    X = \langle v_1, v_2, v_3, \dots, v_m \rangle + L
+$$
+то есть $X$ это сумма линейной оболочки набора и подпространства $L$.
+\newline 
+\newline 
+\definition{Говорят, что $\{ v_j \}^m_{j = 1}$ базис $X$ относительно $L$, если набор ЛНЗ над $L$ и порождает $X$ относительно $L$}
+\lemma{Следующие условия эквивалентны: }
+\begin{enumerate}
+    \item $\{ v_j \}^m_{j = 1}$ - базис $X$ относительно $L$;
+    \item $\{ \bar v_1, \bar v_2, \bar v_3, \dots, \bar v_m \}$ - базис $X/L$;
+    \item $X = \{ v_1, v_2, v_3, \dots, v_m\} \oplus L$.
+\end{enumerate}
+\begin{proof}
+    Очевидно, но поясню
+    \begin{enumerate}
+        \item $1 \Rightarrow 2$: 
+        Так как набор - базис, значит ЛНЗ в $X$ относительно $L$, из чего следует ЛНЗ в $X/L$, а полнота следует отсюда же. 
+        \item $2 \Rightarrow 3$: 
+        Очевидно
+        \item $3 \Rightarrow 1$: 
+        Очевидно
+    \end{enumerate}
+\end{proof}
+\lemma{Если $L \leq X$, тогда имеет место:}
+$$
+    \dim X = \dim L + \dim X/L
+$$
+доказательство очевидно следует из прошлой леммы и к тому же, так как линейная оболочка ЛНЗ набора в пересечении с $L$ дает пустое множество - то сумма является прямой и из нее следует сумма размерностей.
+\newline 
+\newline 
+\theorem{(о ядре и образе)}{Пусть $\varphi \in$ \Hom{X}{Y}, тогда имеет место}
+$$
+    \dim \ker \varphi + \dim \text{Im}\varphi = \dim X
+$$
+\begin{proof}
+    Так как $\text{Im} \varphi \simeq X/\ker \varphi$, то $\dim \text{Im}\varphi = \dim X/\ker\varphi$, тогда из прошлой леммы получим требуемое.
+\end{proof}
+\section{Пространство линейных операторов}
+\definition{Говорят, что операторы $\varphi, \psi \in$ \Hom X Y \textbf{равны}, если}
+$$
+    \varphi x = \psi x, \quad \forall x \in X
+$$
+\definition{Отображение $\chi$ называется \textbf{суммой} линейных операторов $\varphi, \psi \in$ \Hom X Y , если}
+$$
+    \forall x \in X \quad \chi(x) = \varphi(x) + \psi(x)
+$$
+\lemma{Имеет место $\chi \in$ \Hom X Y}
+$$
+    \chi(x_1 + x_2) = \chi(x_1) + \chi(x_2)
+$$
+$$
+    \chi(\lambda x) = \lambda \chi(x)
+$$
+\begin{proof}
+    $$
+        \chi(x_1 + x_2) = \varphi(x_1 + x_2) + \psi(x_1 + x_2) = (\varphi + \psi)x_1 + (\varphi + \psi)x_2 = \chi(x_1) + \chi(x_2)
+    $$
+    $$
+        \chi(\lambda x) = (\varphi + \psi)\lambda x = \lambda(\varphi + \psi)x = \lambda \chi (x)
+    $$
+\end{proof}
+.\newline 
+\definition{Отображение $\zeta$ называется \textbf{умножением} линейного оператора $\varphi$ на число $\lambda$, если}
+$$
+    \forall x \in X \quad \zeta x = \lambda \varphi(x)
+$$
+\lemma{Имеет место $\zeta \in$ \Hom X Y}
+\begin{proof}
+    Очевидно. Так же, как для суммы.
+    $$
+        \zeta(x_1 + x_2) = \lambda (\varphi(x_1) + \varphi(x_2)) = \lambda \varphi(x_1) + \lambda \varphi(x_2) = \zeta(x_1) + \zeta(x_2) 
+    $$
+    $$
+        \zeta(\lambda_1 x) = \lambda_1\lambda_2 \varphi(x) = \lambda_1 \zeta(x)
+    $$
+\end{proof}
+.\newline
+\theorem{}{Множество \Hom X Y - линейное пространство над полем $\mathbb{K}$.}
+\begin{proof}
+    Пусть $\varphi, \psi, \zeta \in$ \Hom X Y, а $\lambda, \mu \in \mathbb{K}$.
+    \begin{enumerate}
+        \item Коммутативность сложения
+        $$
+            \varphi + \psi = \psi + \varphi 
+        $$ 
+        \item Ассоциативность сложения 
+        $$
+            \varphi + (\psi + \zeta) = (\varphi + \psi) + \zeta
+        $$
+        \item Существование нуля
+        $$
+            \exists \varTheta: \quad \varphi(x) + \varTheta(x) = \varphi(x) + 0_Y = \varphi(x)
+        $$
+        \item Существование противоположного элемента
+        $$
+            -\varphi + \varphi = \varTheta
+        $$
+        \item 
+        $$
+            \lambda(\varphi + \psi) = \lambda\varphi + \lambda\psi
+        $$
+        \item 
+        $$
+            (\lambda + \mu) \varphi = \lambda\varphi + \mu \varphi
+        $$
+        \item 
+        $$
+            \lambda(\mu\varphi) = (\lambda\mu)\varphi
+        $$
+        \item 
+        $$
+            \exists \mathbb I: \quad \mathbb I \cdot \varphi = \varphi
+        $$
+    \end{enumerate}
+\end{proof}
+\section{Матрица линейного оператора}
+\definition{\textbf{Матрицей линейного оператора} $\varphi$ в паре базисов $\{ e_i\}^n_{i = 1}$ и $\{ g_j \}^m_{j = 1}$ называется матрица $A$, по столбцам которой координаты образов векторов базиса $\{ e_i \}^n_{i = 1}$ в базисе $\{ g_j\}^m_{j = 1}$}
+$$
+    \varphi(e_i) = \sum_{j = 1}^{m} \alpha^j_ig_j
+$$
+\theorem{}{Задание линейного оператора $\varphi$ эквивалентно заданию его матрицы в фиксированной паре базисов.}
+\begin{proof}
+    Докажем импликации
+    \begin{itemize}
+        \item[$\Rightarrow$] Очевидно. То есть задали оператор - автоматически можем задать матрицу по определению.
+        \item[$\Leftarrow$] Пусть $\varphi \in$ \Hom X Y - линейный оператор и $\{ e_i\}^n_{i = 1}, \{ g_j \}^m_{j = 1}$ - базисы пространств $X, Y$ соответственно. Рассмотрим элементы $x \in X, y \in Y$ такие, что
+        $$
+            x = \sum_{i = 1}^{n} \xi^i e_i, \quad y = \sum_{j = 1}^{m} \eta^j g_j, \quad \varphi(x) = y
+        $$
+        Рассмотрим действие оператора: 
+        $$
+            \varphi(x) = \varphi(\sum_{i = 1}^{n} \xi^i e_i) = \sum_{i = 1}^{n} \xi^i \varphi(e_i) = \sum_{i = 1}^{n} \xi^i \sum_{j = 1}^{m} \alpha^j_i g_j = \sum_{j = 1}^{m} \eta^j g_j
+        $$
+        Откуда следует, мелкими преобразованиями
+        $$
+            \eta^j = \sum_{i = 1}^{n} \xi^i \alpha^j_i
+        $$  
+        то есть мы смогли получить действие оператора на вектор, зная коэффициенты матрицы линейного оператора.
+    \end{itemize}
+\end{proof} 
+\section{Теорема о базисе пространства линейных операторов}
+\theorem{}{Набор операторов $\{ ^i_j\varepsilon \}$, действующих на произвольный вектор $x \in X$ по правилу}
+$$
+    ^i_j \varepsilon(x) = \xi^ig_j, \quad x = \sum_{i = 1}^{n} \xi^i e_i
+$$
+образует базис пространства \Hom X Y.
+\begin{proof}
+    Необходимо показать, что набор операторов $\{ ^i_k \varepsilon \}$ является полным и ЛНЗ в \Hom X Y: 
+    \begin{itemize}
+        \item[ПН:] Пусть $\varphi \in$ \Hom X Y, тогда
+        $$
+            \varphi(x) = \varphi(\sum_{i = 1}^{n} \xi^i e_i) = \sum_{i = 1}^{n}\xi^i \varphi(e_i) = \sum_{i = 1}^{n} \xi^i \sum_{j = 1}^{m} a^j_i g_j =
+        $$
+        $$
+            = \sum_{i = 1}^{n} \sum_{j = 1}^{m} \xi^i a_i^j g_j = \sum_{i = 1}^{n} \sum_{j = 1}^{m} .^i_j \varepsilon(x)a^j_i, \quad \forall x \in X
+        $$
+        Откуда следует, что 
+        $$
+            \varphi = \sum_{i = 1}^{n} \sum_{j = 1}^{m} .^i_j \varepsilon a^j_i, \quad \forall \varphi \in \text{Hom}(X, Y)
+        $$
+        \item[ЛНЗ:] рассмотрим линейную комбинацию векторов набора $\{ ^i_j \varepsilon \}$:
+        $$
+            \sum_{i = 1}^{n} \sum_{j = 1}^{m} .^i_j \varepsilon \beta^j_i = \varTheta
+        $$
+        и применим обе части равенства к базисному элементу $e_k$: 
+        $$
+            \sum_{i = 1}^{n} \sum_{j = 1}^{m} .^i_j \varepsilon(e_k)\beta^j_i = \sum_{i = 1}^{n} \sum_{j = 1}^{m} \delta ^i_k g_j \beta^j_i = \sum_{j = 1}^{m} g_j \beta^j_k = 0_Y
+        $$
+        Но так как набор $\{ g_j \}^m_{j = 1}$ - ЛНЗ, а значит $\beta^j_k = 0 \forall k$. А так как $k$ - любое, то это верно для всех векторов набора $\{e_i\}^n_{i = 1}$. 
+    \end{itemize}
+\end{proof}
+.\newline 
+\subsection{То, чего нет в билетах, но оно важно}
+\definition{ \textbf{Преобразованием подобия} матрицы $A$ называется преобразование}
+$$
+    A \mapsto T^{-1} \cdot A \cdot T, \quad \det T \neq 0
+$$
+что позволяет находить матрицу оператора для другого базиса, зная старый и новый базисы и матрицу ЛО.
 \end{document}
