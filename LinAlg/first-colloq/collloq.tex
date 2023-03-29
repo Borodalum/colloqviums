@@ -271,4 +271,103 @@ $$
     A \mapsto T^{-1} \cdot A \cdot T, \quad \det T \neq 0
 $$
 что позволяет находить матрицу оператора для другого базиса, зная старый и новый базисы и матрицу ЛО.
+\section{Композиция линейных операторов}
+\definition{Пусть $X, Y, K$ - линейные пространства. \textbf{Композицией} линейных операторов $\psi \in$ \Hom Y Z и $\varphi \in$ \Hom X Y называется отображение $\chi \in$ \Hom X Z такое, что}
+$$
+    \chi = \psi \circ \varphi \quad \psi \varphi x = \psi(\varphi x) \quad \forall x \in X
+$$
+\lemma{Отображение $\chi$ - линейный оператор}
+\begin{proof}
+    $$
+        \chi (x_1 + x_2) = \psi(\varphi(x_1 + x_2)) = \psi(\varphi x_1 + \varphi x_2) = \psi (\varphi x_1) + \psi(\varphi x_2) = \chi x_1 + \chi x_2
+    $$
+    $$
+        \chi (\lambda x) = \psi (\varphi \lambda x) = \psi (\lambda \varphi x) = \lambda\psi(\varphi x) = \lambda \chi x
+    $$
+\end{proof}
+.\newline 
+\theorem{(о матрице оператора-композиции операторов)}{Пусть $\chi = \psi \circ \varphi$, тогда $C_\chi = B_\psi \cdot A_\varphi$}
+\begin{proof}
+    Из определения следует: 
+    $$
+        \chi e_i = \psi (\varphi e_i) = \psi(\sum_{j = 1}^{m} \alpha^j g_j) = \sum_{j = 1}^{m} \alpha^j\psi(g_j) = \sum_{j = 1}^{m}\alpha^j(\sum_{k = 1}^{p} \beta^k_j h_k) = 
+    $$
+    $$
+        = \sum_{k = 1}^{p}(\sum_{j = 1}^{m} \alpha_i^j \beta^k_j) h_k = \sum_{i = 1}^{p} \gamma^k_i h_k \quad \Rightarrow \quad \gamma^k_i = \sum_{j = 1}^{m} \alpha_i^j \beta^k_j
+    $$
+\end{proof}
+\section{Алгебра линейных операторов и алгебра матриц}
+\lemma{Операция композиции операторов ассоциативна}
+    $$
+        \varphi \in \text Hom (X, Y), \quad \psi \in  \text Hom (Y, Z), \quad \chi \in \text Hom (Z, W) 
+    $$
+\begin{proof}
+    Покажем, что композиция ассоциативна всегда: 
+    $$  
+        (\chi \circ (\psi \circ \varphi))(x) = \chi ((\psi \circ \varphi)(x)) = \chi(\psi(\varphi(x))) = (\chi \circ \psi)(\varphi(x)) = ((\chi \circ \psi) \circ \varphi)(x)
+    $$
+\end{proof}
+.\newline 
+\notabene{Множество $\text{End}(X)$ имеет структуру полугруппы(ассоциативная операция) относительно операции композиции и структуру кольца относительно композиции и сложения}
+\newline
+\definition{\textbf{Алгеброй} называется кольцо, снабженное структурой линейного пространства.}
+\newline
+\definition{Алгебра End$(X, Y)$ называется \textbf{алгеброй операторов} над пространством $X(\mathbb{K})$.}
+\subsection{Примеры алгебр}
+\begin{enumerate}
+    \item $\mathbb{R}$ - алгебра вещественных чисел;
+    \item $\mathbb{C}$ - алгебра комплексных чисел.
+\end{enumerate}
+\subsection{Алгебра матриц}
+\notabene{Очевидно, что каждому оператору можно сопоставить свою матрицу, а значит алгебра линейных операторов изоморфна алгебре квадратных матриц $n \times n$}
+\newline 
+\lemma{Имеет место изоморфизм алгебры ЛО и алгебры квадратных матриц $n \times n$}
+$$
+    \text End(X, Y) \simeq \text{Mat}_n
+$$
+\begin{proof}
+    Выберем базис $\{ ^i_j \varepsilon \}$ в End$(X, Y)$ и отобразим
+    $$
+        \varphi = \sum_{i, j = 1}^{n} .^i_j \varepsilon \alpha^j_i \quad \leftrightarrow \quad ||\alpha^j_i|| = A_\varphi
+    $$
+\end{proof}
+\section{Обратный оператор}
+\definition{Обратным оператором к данному называется отображение $\bar \varphi \text{Im}\varphi \to X$, такое что}
+$$
+    \bar(y) = x \quad \forall y \in \text{Im}\varphi
+$$
+\lemma{Отображение $\bar{\varphi}$ - линейный оператор}
+\begin{proof}
+    Очевидно.
+\end{proof}
+.\newline
+\definition{Оператор, для которого существует обратный, называется \textbf{обратимым}.}
+\newline 
+\definition{Линейный оператор $\varphi ^ {-1} \in$ Hom X Y называется \textbf{обратным оператором} к оператору $\varphi$, если}
+$$
+    (\bar{\varphi} \circ \varphi)(x) = x \quad \forall x \in X
+$$
+$$
+    (\varphi \circ \bar{\varphi})(y) = y \quad \forall y \in Y
+$$
+\theorem{(критерий существования обратного оператора)}{Для оператора $\varphi \in$ Hom X Y существует обратный ему тогда и только тогда, когда}
+$$
+    \ker \varphi = {0}, \quad \text{Im}\varphi = Y
+$$
+\begin{proof}
+    Первое - гарантирует инъективность отображения, а второе - сюръективность. Поэтому отображение является биекцией, а значит существует обратное.
+\end{proof}
+.\newline 
+\notabene{Необходимым условием существования обратного оператора является изоморфность пространств $X$ и $Y$}
+$$
+    X \simeq Y \quad \Leftrightarrow \quad \dim X = \dim Y
+$$
+\lemma{Отображение $\varphi \mapsto \varphi^{-1}$ обладает следующими свойствами:}
+$$
+    (\varphi^{-1})^{-1} = \varphi, \quad (\psi \circ \varphi)^{-1} = \varphi^{-1} \circ \psi ^{-1}
+$$
+\begin{proof}
+    Очевидно.
+\end{proof}
+\section{Обратимость в алгебре матриц}
 \end{document}
