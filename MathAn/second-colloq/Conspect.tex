@@ -1,0 +1,297 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage[normalem]{ulem}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{arcs}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{stackrel}
+\usepackage{xcolor}
+\usepackage{cancel}
+
+\makeatother
+\makeatletter
+
+\title{\textbf{Конспект лекций (12-...)}}
+\author{Илья Астафьев}
+
+\DeclareMathOperator*\lowlim{\underline{lim}}
+\DeclareMathOperator*\uplim{\overline{lim}}
+
+\newcommand*{\limToInf}[2]{\displaystyle \lim_{#1 \to \infty} #2}
+\newcommand*{\limToZero}[2]{\displaystyle \lim_{#1 \to 0} #2}
+\newcommand*{\lemma}[1]{\textbf{Лемма.} #1. \newline}
+\newcommand*{\theorem}[2]{\textbf{Теорема #1. } #2 \newline}
+\newcommand*{\notabene}[1]{\textit{Notabene. #1.} \newline}
+\newcommand*{\definition}[1]{\textbf{Определение.} #1 \newline}
+\newcommand*{\prooff}[1]{$\vartriangleright$ #1 $\blacktriangleleft$}
+\newcommand*{\R}{\mathbb{R}}
+\newcommand*{\eps}{\varepsilon}
+\newcommand*{\cf}[2]{\cfrac{#1}{#2}}
+\newcommand*{\D}{\Delta}
+\newcommand*{\p}[1][n]{P_{#1}(x)}
+\newcommand*{\Q}[1][m]{Q_{#1}(x)}
+\newcommand*{\Rfrac}[2]{\frac{\p{#1}}{\Q{#2}}}
+\newcommand*{\sfrac}{\frac{A}{(x - a)^k}}
+\newcommand*{\Sfrac}{\frac{Ax+B}{(x^2 + px + q)^k}}
+\newcommand*{\PAdv}[2]{P_{#1}^{#2}(x)}
+\newcommand*{\QAdv}[2]{Q_{#1}^{#2}(x)}
+\newcommand*{\rome}[1]{\MakeUppercase{\MakeUppercase{\romannumeral #1}}}
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section{Несобственный интеграл}
+\definition{Пусть $E \subset \mathbb{R}, f(x) \in R_{loc}(E)$ - локально интегрируема на $E$, если $f \in R[a, b]$ для $\forall[a, b] \subset E$\\ 
+}
+\definition{Пусть $f \in R_{loc}[a, b)$, где $(b \in \mathbb{R} \cup {+\infty})$ 
+}
+\begin{align*}
+    &F(\omega) = \int_{a}^{\omega} f(x)dx, \text{ при }\omega \in [a, b)\\
+    &\int_{a}^{b} f(x)dx = \displaystyle \lim_{\omega \to b - 0} F(\omega) \text{ - несобственный интеграл}
+\end{align*}
+Если $\displaystyle \lim F(\omega)$ конечен, то $\int_{a}^{b} f(x)dx$ сходится
+\begin{itemize}
+    \item Если $\int_{a}^{b}$в $\R \cup \{+\infty\}$ - $\rome{1}$ рода
+    \item Если $\int_{a}^{b}$в $\R$ - $\rome{2}$ рода
+\end{itemize}
+Если $f \notin R[a, \bar{b}]$, то $\bar{b}$ называется \textit{особой точкой $f(x)$}.
+Пример:
+\begin{align*}
+    &\int_{0}^{+\infty}\frac{\sin x}{x}dx \text\ -\ \rome{1} \text{ рода ($+\infty$ особая точка)}\\
+    &\int_{0}^{1}\frac{dx}{x} - \rome{2} \text{ рода (0 особая точка)}
+\end{align*}
+Если:
+\begin{equation*}
+    \int_{a}^{\bar{b}}f(x)dx = \displaystyle \lim_{\omega \to b-0} \int_{a}^{\omega} \Rightarrow
+    \begin{cases}
+        \in \R, \text{то сходится},
+        \\
+        \notin \R, \text{то расходится} 
+        \begin{cases}
+            \pm\infty 
+            \\
+            \nexists\ \overline{\R}
+        \end{cases}
+    \end{cases}
+\end{equation*}
+Например:
+\begin{equation*}
+    \int_{1}^{+\infty}\frac{dx}{x^{\alpha}} =
+    \begin{cases}
+        \ln x \biggm\vert_{1}^{+\infty},\ \alpha = 1
+        \\
+        \frac{x^{1 - \alpha}}{1 - \alpha}\biggm\vert_{1}^{+\infty}, \alpha \neq 1
+    \end{cases}
+    =
+    \begin{cases}
+        +\infty,\ \alpha = 1
+        \\
+        +\infty,\ \alpha < 1
+        \\
+        \frac{1}{\alpha - 1},\ \alpha > 1
+    \end{cases}
+\end{equation*}
+\begin{equation*}
+    \int_{0}^{1} \frac{dx}{x^{\alpha}} \text{ сходится при $\alpha < 1$. Расходится при $\alpha \geq 1$}
+\end{equation*}
+\subsection{Свойства несобственного интеграла}
+\begin{enumerate}
+    \item {
+        Линейность. $f, g \in R_{loc}{[a, b)}$
+        \begin{itemize}
+            \item $$\int_{a}^{b} (f + g)dx = \int_{a}^{b}f(x)dx + \int_{a}^{b}g(x)dx$$если $$\int_{a}^{b}f(x)dx, \int_{a}^{b}g(x)dx \in \Bar{\mathbb{R}}$$
+            \item $$\int_{a}^{b} \alpha \cdot f(x)dx = \alpha \cdot \int_{a}^{b} f(x)dx$$
+            \item {
+                \textbf{Следствие:}\\
+                Сходится + Сходится = Сходится\\
+                Сходится + Расходится = Расходится\\
+                Расходится + Расходится = ?
+            }
+        \end{itemize}
+    }
+    \item {
+        Монотонность. $f, g \in R_{loc}[a, b), f(x) \leq g(x) \text{ на }[a, b) \text{ и }\int_{a}^{b}f(x)dx, \int_{a}^{b}g(x)dx \in \overline{R}: $\\
+        Тогда: $$\int_{a}^{b}f(x)dx \leq \int_{a}^{b}g(x)dx$$   
+    }
+    \item {
+        Аддитивность. $f \in R_{loc}[a, b), c \in (a, b):$\\
+        Тогда: $$\int_{a}^{b}f(x)dx = \int_{a}^{c}f(x)dx + \int_{c}^{b}f(x)dx$$
+        \prooff{
+            $$
+                \int_{a}^{b}f(x)dx = \displaystyle \lim_{\omega \to b-0} \int_{a}^{c} + \int_{c}^{\omega} = \int_{a}^{c} + \displaystyle \lim_{\omega \to b-0} \int_{c}^{\omega}
+            $$
+        }
+    }
+    \item {
+        Формула по частям. $u, v - \text{ дифференцируема на } [a, b), u^{'} v^{'} \in R_{loc}[a, b)$
+        $$
+            \int_{a}^{b}u(x)\cdot v^{'}(x) = u v \biggm \vert_{a}^{b} - \int_{a}^{b}v(x)\cdot u^{'}(x)dx
+        $$
+    }
+    \item {
+        Формула замены переменной. $f \in C[a, b), x = \phi(t)\ [\alpha, \beta) \to [a, b).\ \phi - \text{ диффернцируема на }[\alpha, \beta),\ \\ \exists \phi(\beta - 0) = \displaystyle \lim_{t \to \beta - 0} \phi(t) \text{ в }\overline{R}$\\
+        Тогда:
+        $$
+            \int_{\phi(\beta-0)}^{\phi(\alpha)}f(x)dx = \int_{\alpha}^{\beta}f(\phi(t))\cdot \phi^{'}(t)dt
+        $$
+        и эти интегралы (не)существуют одновременно\\
+        \prooff{
+            \begin{enumerate}
+                \item {
+                    $\exists I_1 \in \overline{R},\\ I_2 = \displaystyle \lim_{\omega \to \beta - 0}\int_{\alpha}^{\omega} f(\phi)\cdot \phi^{'} dt = \displaystyle \lim_{\omega \to \beta - 0} \int_{\phi(\alpha)}^{\phi(\omega)}f(x)dx = \int_{\phi(\alpha)}^{\phi(\beta - 0)}f(x)dx = I_1$
+                }
+                \item {
+                    $\exists I_2 \in \overline{R},\\ I_1 = \displaystyle \lim_{\omega \to \phi(\beta - 0)} \int_{\phi(\alpha)}^{\phi(\beta - 0)}f(x)dx$
+                    \begin{itemize}
+                        \item {
+                            Если $\phi(\beta - 0) < b$, то очевидно
+                        }
+                        \item {
+                            Пусть $x_n \to \phi(\beta - 0) = b, x_n \in [\phi(\alpha), b)$\\
+                            для $\forall n\  \exists \gamma_n: \phi(\gamma_n) = x_n$\\
+                            Докажем, что $$\gamma_n \to \beta - 0,\ \text{при } n \to +\infty$$
+                            Если $\gamma \nrightarrow \beta - 0,$ то $\exists \varepsilon > 0\ \forall n_0:\  \exists n \geq n_0$
+                            \begin{align*}
+                                &\gamma_n < \beta - \varepsilon\\
+                                &\phi(\gamma_n) \leq \sup_{[\alpha, \beta - \varepsilon]}\phi < b
+                            \end{align*}
+                            Отсюда следует, что $\phi(\gamma_n) \nrightarrow b$
+                        }
+                    \end{itemize}
+                    Итак, для $\forall x_n \to \phi(\beta - 0):\ $
+                    $$
+                        \int_{\phi(\alpha)}^{x_n} f(x)dx = \int_{\alpha}^{\gamma_n} f(\phi(t))\cdot\phi^{'}(t)dt \xrightarrow[n \to \infty]{} \int_{\alpha}^{\beta - 0} f(\phi)\cdot\phi^{'}(t)dt
+                    $$
+                }
+            \end{enumerate}
+        } 
+    }
+\end{enumerate}
+\subsection{Интеграл с несколькими особыми точками}
+1.
+$$
+    f \in R(a, b)
+    \int_{a}^{b} f(x)dx = \displaystyle \lim_{\omega \to a + 0} \int_{\omega}^{c} f(x)dx + \displaystyle \lim_{\omega \to b - 0} \int_{c}^{\omega} f(x)dx = \int_{a}^{c} f(x)dx + \int_{c}^{b} f(x)dx
+$$
+где $c \in (a, b)$
+$$
+    \int_{a}^{b} f(x)dx \text{ сходится} \Leftrightarrow \int_{a}^{c}f(x)dx \text{ и } \int_{c}^{b} f(x)dx \text{ сходятся}
+$$
+2.
+Пусть $f$ определена на $(a, b); a, b \in \bar{\R}$ кроме конечного числа точек. $C \in (a, b)$ называется особой точкой $f$, если $f \notin R[\alpha, \beta]$ для $\forall \alpha, \beta: a < \alpha < \beta < b$\\
+$a (b)$ - особая, если $a = -\infty (b = -\infty)$ или $f \notin R[a, \alpha] \forall \alpha \in (a, b)$\\\\
+Пусть $c_1 < c_2 < ... < c_{n-1}$ - особые точки $f$ на $(a, b)$ \\
+$c_0 = a, c_n = b$ 
+\begin{align*}
+    \int_{a}^{b} &f(x)dx = \sum_{i = 1}^{n} \int_{c_{i - 1}}^{c_i} f(x)dx \\
+    \int_{a}^{b} &f(x)dx \text{ - сходится} \Leftrightarrow \int_{c_{i - 1}}^{c_i} f(x)dx \text{ - сходится } \forall i = 1...n \\
+\end{align*}
+Проблема: если пытаться взять существенно большие значения для $b$, то зачастую численный метод вычисления несобственного интеграла даст сильно неточное значение.\\ Например:
+\begin{align*}
+    &\int_{1}^{+\infty} \frac{dx}{x} = +\infty\\
+    &\int_{1}^{10^6} \frac{dx}{x} = 6 \cdot \ln10 \approx 13\\
+    &\int_{1}^{10^{10}} \frac{dx}{x} = 10 \cdot \ln 10 \approx 23
+\end{align*}
+\subsection{Интеграл от знакопостоянной функции}
+Пусть $f \in R_{loc}[a, b), f \geq 0 $ на $[a, b)$
+\theorem{}{Пусть $F(\omega) = \int_{a}^{\omega} f(x)dx$
+    Тогда:
+    1. $F \uparrow$
+    2. $\int_{a}^{b} f(x)dx$ - сходится $\Leftrightarrow F$ ограничена 
+}
+\textit{Доказательство: \\}
+1.
+$$
+    \omega_1 < \omega_2,\  f(\omega_2) = \int_{a}^{\omega_2} = \int_{a}^{\omega_1} + \int_{\omega_1}^{\omega_2} \geq F(\omega_1)
+$$
+2. Очевидно \\\\
+\theorem{(признаки сравнения)} {}
+Пусть $f, q \in R_{loc}[a, b)$
+\begin{enumerate}
+    \item {$0 \leq f(x) \leq g(x) $ на $[a, b)$. Тогда
+        \begin{itemize}
+            \item Если $\int_{a}^{b} g(x)dx$ - сходится $\Rightarrow \int_{a}^{b} f(x)dx$ - сходится
+            \item Если $\int_{a}^{b} g(x)dx$ - расходится $\Rightarrow \int_{a}^{b} f(x)dx$ - расходится
+        \end{itemize}
+    }
+    \item {$f \thicksim g$, при $x \to b - 0$. Тогда
+        \begin{itemize}
+            \item $\int_{a}^{b} f(x)dx$ и $\int_{a}^{b} g(x)dx$ оба сходятся или оба расходятся 
+        \end{itemize}
+    }
+\end{enumerate}
+\textit{Доказательство: \\}
+1. Очевидно \\
+2. Пусть $f(x) \thicksim g(x)$ при $x \to b - 0$
+\begin{align*}
+    &f(x) = \alpha(x) \cdot g(x), \alpha(x)\xrightarrow[x \to b - 0]{} 1\\
+    &\frac{1}{2} \leq \alpha(x) \leq \frac{3}{2} \text{ для } x \in (\delta, b)\\
+    &\frac{1}{2} g(x) \leq f(x) \leq \frac{3}{2} g(x)
+\end{align*}
+\subsection{Интеграл от знакопеременной функции}
+\theorem{(Критерий Коши)}{
+    \begin{align*}
+        \text{Пусть }f \in R_{loc}[a, b). &\text{Тогда }\int_{a}^{\bar{b}} f(x)dx \text{ сходится } \Leftrightarrow\\
+        \forall \epsilon > 0 \exists \Delta \in (a, b):\  &\forall \delta_1, \delta_2 \in (\Delta, b) \Rightarrow\\
+        &\left|\int_{\delta_1}^{\delta_2} f(x)dx\right| < \epsilon
+    \end{align*}
+}
+\textit{Доказательство: \\}
+\begin{align*}
+    &F(\omega) = \int_{a}^{\omega} f(x)dx. \exists \displaystyle \lim_{\omega \to b - 0} F(\omega) \in \R \Leftrightarrow\\
+    &\forall \varepsilon > 0 \exists \Delta:\ \forall \delta_1, \delta_2 > \Delta\ |F(\delta_1) - F(\delta_2)| < \varepsilon
+\end{align*}
+\definition{Пусть $f \in R_{loc}[a, b)$
+    $$
+        \int_{a}^{b} f(x)dx \text{ сходится абсолютно, если } \int_{a}^{b} |f(x)|dx \text{ сходится}
+    $$
+}
+\theorem{}{}
+Если $\int_{a}^{b} f(x)dx$ сходится абсолютно, то он сходится\\\\
+\textit{Доказательство: }
+$$
+    \int_{a}^{b}|f(x)|dx \text{ сходится } \Rightarrow \forall \varepsilon > 0\  \exists \Delta \in (a, b)\ \forall \delta_1, \delta_2 > \Delta: \left|\int_{\delta_1}^{\delta_2}f(x)dx\right| \leq \left|\int_{\delta_1}^{\delta_2} f(x)dx\right| < \varepsilon
+$$
+\theorem{(о сумме с абсолютно сходящимся интегралом)}{}
+Пусть $f, g, h \in R_{loc}[a, b), f(x) = g(x) + h(x)$ на $[a, b)$ и $\int_{a}^{b}h(x)dx$ сходится абсолютно.\\ 
+Тогда:
+\begin{itemize}
+    \item $\int_{a}^{b}f(x)dx$ и $\int_{a}^{b}g(x)dx$ - оба сходятся абсолютно\\
+    \item $\int_{a}^{b}f(x)dx$ и $\int_{a}^{b}g(x)dx$ - оба сходятся условно\\
+    \item $\int_{a}^{b}f(x)dx$ и $\int_{a}^{b}g(x)dx$ - оба расходятся.\\\\
+\end{itemize}
+\textit{Доказательство: \\}
+$$
+    |f| \leq |g| + |h|
+$$
+Пример: 
+$$
+    \int_{1}^{+\infty}\frac{\sin x}{x}dx = -\frac{\cos x}{x}\biggm\vert_{1}^{+\infty} - \int_{1}^{+\infty} \frac{\cos x}{x^2} dx
+$$
+Рассмотрим: 
+$$ 
+    \int_{1}^{+\infty} \frac{|\sin x|}{x}dx
+$$
+$$
+    \delta_1 = \pi n, \delta_2 = 2\pi n
+$$
+$$
+    \int_{\pi n}^{2 \pi n} \frac{|\sin x|}{x}dx \geq \frac{1}{2 \pi n} \int_{\pi n}^{2 \pi n}|\sin x|dx =
+$$
+$$
+    \frac{1}{2 \pi n} \cdot n \cdot \int_{0}^{\pi} \sin x dx = \frac{1}{\pi} = \varepsilon
+$$
+\end{document}
