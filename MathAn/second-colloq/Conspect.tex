@@ -252,7 +252,7 @@ $$
 \textit{Доказательство: \\}
 \begin{align*}
     &F(\omega) = \int_{a}^{\omega} f(x)dx. \exists \displaystyle \lim_{\omega \to b - 0} F(\omega) \in \R \Leftrightarrow\\
-    &\forall \varepsilon > 0 \exists \Delta:\ \forall \delta_1, \delta_2 > \Delta\ |F(\delta_1) - F(\delta_2)| < \varepsilon
+    &\forall \varepsilon > 0\ \exists \Delta:\ \forall \delta_1, \delta_2 > \Delta\ |F(\delta_1) - F(\delta_2)| < \varepsilon
 \end{align*}
 \definition{Пусть $f \in R_{loc}[a, b)$
     $$
@@ -294,4 +294,119 @@ $$
 $$
     \frac{1}{2 \pi n} \cdot n \cdot \int_{0}^{\pi} \sin x dx = \frac{1}{\pi} = \varepsilon
 $$
+\Large{\textit{Вопросы из чата:\\\\}}
+Пусть $f \in R_{loc}[a, +\infty)$. Правда ли, что: 
+$$
+    \int_{a}^{+\infty}f(x)dx \text{ - сходится }\Rightarrow \displaystyle \lim_{x \to +\infty}f(x) = 0
+$$
+Ответ: нет, неправда.
+$$
+    f \in C[a, +\infty),\ f \geq 0 \nRightarrow f(x) \text{ - ограничена}
+$$
+\theorem{(Признак Абеля-Дирихле)}{}\\
+Пусть $f(x) \in C[a, b),\ g(x) \in C^1[a, b)$. 
+Тогда для сходимости $\int_{a}^{b} f(x) \cdot g(x) dx$ достаточно одной пары условий
+\begin{itemize}
+    \item {
+        Признак Дирихле
+        \begin{enumerate}
+            \item $F(\omega) = \int_{a}^{\omega}g(x)dx \text{ - ограничена}$
+            \item $g(x) \text{ монотонна и }g(x) \xrightarrow[x \to b - 0]{}0$
+        \end{enumerate}
+    }
+    \item {
+        Признак Абеля: 
+        \begin{enumerate}
+            \item $\int_{a}^{b} f(x)dx \text{ сходится }$
+            \item $g(x) \text { монотонна и ограничена}$
+        \end{enumerate}
+    }
+\end{itemize}
+\prooff{
+    \begin{enumerate}
+        \item Дирихле: {
+            $F^{'}(x) = f(x)$\\\\
+            Критерий Коши: $\int_{a}^{b}f(x) \cdot g(x)dx \text{ - сходится }\Leftrightarrow \forall \varepsilon > 0\ \exists \Delta \in (a, b)\ \forall\delta_1, \delta_2 \in (\Delta, b)$
+            $$
+                \left|\int_{\delta_1}^{\delta_2}f(x)\cdot g(x)dx\right| = \left|\int_{\delta_1}^{\delta_2}f(x)d(F)\right| = \left|g(x) \cdot F(x)\biggm\vert_{\delta_1}^{\delta_2} = \int_{\delta_1}^{\delta_2}F(x) \cdot g^{'}(x)dx\right|\leq
+            $$
+            $$
+                \leq C \cdot (|g(\delta_1)|+|g(\delta_2)|) + C \cdot \left|\int_{\delta_1}^{\delta_2}|g^{'}(x)dx|\right| \leq 2C(|\delta_1|+|g(\delta_2|) \leq 4C \cdot \varepsilon 
+            $$
+        }
+        \item Абель:{
+            т.к $g(x)$ - монотонна и ограничена $\Rightarrow$
+            $$
+                \exists \displaystyle \lim_{x \to b - 0} g(x) = A \in \R
+            $$
+            $$
+                g(x) - A \text{ - монотонна и } \xrightarrow[x \to b - 0]{}0
+            $$
+            Рассмотрим
+            $$
+                \int_{a}^{b} f(x) \cdot g(x) dx = \int_{a}^{b} f(x) \cdot (g - A)dx + A \cdot \int_{a}^{b} f(x)dx \Rightarrow \text{ сходится по Дирихле}
+            $$  
+        }
+    \end{enumerate}
+}
+\\
+Пример: 
+$$
+    \int_{0}^{+\infty} \frac{\sin(x)}{x}dx
+$$
+$f(x) = \sin(x);\\\\ F(\omega) = \int_{0}^{\omega}\sin(x)dx = 1 - \cos(\omega)$ - ограничена;\\\\ $g(x) = \frac{1}{x} \xrightarrow[x \to + \infty]{}0$ и $\downarrow\\\\$
+Отсюда следует, что: 
+$$
+    \int_{0}^{+\infty} \frac{\sin(x)}{x}dx \text{ - сходится}
+$$
+\subsection{Интеграл в смысле главного значения}
+$$
+    \int_{-\infty}^{+\infty} = \int_{-\infty}^{c} + \int_{c}^{+\infty} = \displaystyle \lim_{a \to -\infty} \int_{a}^{c} + \lim_{b \to +\infty} \int_{c}^{b}
+$$
+Из того, что мы знаем на данный момент, мы делаем вывод, что интеграл расходится. Чтобы учитывать подобные ситуации, вводят понятние:\\\\
+\definition{ Пусть $f \in R_{loc}(\R)$. Тогда $v.p \int_{-\infty}^{+\infty} f(x)dx = \displaystyle \lim_{a \to +\infty} \int_{-a}^{a}f(x)dx$}\\
+\definition{ Пусть $f \in R_{loc}([a, b] \backslash \{c\}) \Rightarrow v.p \int_{a}^{b} = \lim_{\varepsilon \to 0+}\left(\int_{a}^{c - \varepsilon}f(x)dx + \int_{c + \varepsilon}^{b}f(x)dx\right)$}
+\lemma{
+    Если сходится $\int_{a}^{b}$, то сходится и $v.p \int_{a}^{b} = \int_{a}^{b}$ 
+}
+\newpage
+\subsection{\textit{Полезные вещи $:\bigl)$}} 
+\begin{enumerate}
+    \item Интеграл Эйлера-Пуассона:\\ {
+        $$
+            \int_{-\infty}^{+\infty} e^{-x^2}dx = \sqrt{\pi}
+        $$
+        \prooff{
+            $$
+            e^x \geq x + 1,\ \forall x \in \R
+            $$
+            $$
+                1 - x^2 \leq e^{-x^2} = \frac{1}{e^{x^2}} \leq \frac{1}{x^2 + 1}
+            $$
+            $$
+                (1 - x^2)^k \leq e^{-kx^2} \leq \frac{1}{(x^2 + 1)^k},\ k \in \mathbb{N}
+            $$
+            $$
+                \int_{-1}^{1}(1 - x^2)^k dx \leq \int_{-1}^{1}e^{-kx^2}dx \leq \int_{-\infty}^{+\infty}e^{-kx^2}dx \leq \int_{-\infty}^{+\infty} \frac{dx}{(1 + x^2)^k}
+            $$
+            В левой части делаем замену $x = \sin(t)$, в правой части сделаем замену $\tan(t)$
+            $$
+                \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos^{2k+1}(t)dt \leq \int_{-\infty}^{+\infty}e^{-kx^2}dx \leq \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos^{2k-2}(t)dt
+            $$
+            $$
+                \int_{0}^{\frac{\pi}{2}} \cos^n(x)dx = \int_{0}^{\frac{\pi}{2}} \sin^n(x) = ?
+            $$
+            $$
+                2 \cdot \frac{(2k)!!}{(2k+1)!!} \leq \int_{-\infty}^{+\infty}e^{-kx^2} dx \leq 2 \cdot \frac{\pi}{2} \cdot \frac{(2k - 3)!!}{(2k - 2)!!}
+            $$
+            Делаем замену $t = \sqrt{k} \cdot x$
+            $$
+                \frac{2\sqrt{k}}{(2k + 1)} \cdot \frac{1}{\sqrt{k}}\cdot \frac{(2k)!!}{(2k - 1)!!} \leq \frac{1}{\sqrt{k}} \cdot \int_{-\infty}^{+\infty}e^{-t^2}dt \leq \pi \cdot \frac{2k \cdot \sqrt{k}}{(2k - 1)} \cdot \frac{(2k - 1)!!}{(2k)!!} \Rightarrow
+            $$
+            $$
+                \int_{-\infty}^{+\infty}e^{-t^2}dt = \sqrt{\pi}
+            $$
+        }
+    } 
+\end{enumerate}
 \end{document}
